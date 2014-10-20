@@ -1,0 +1,65 @@
+/*  === myrrlyn.scss ===
+ *  Custom site styles
+ *  Written by myrrlyn
+ *  Powered by WebEssentials
+ */
+
+//  Imports
+@import "variables";
+@import "mixins";
+@import "pseudos";
+@import "fonts";
+@import "bugs";
+
+//  STRUCTURAL STYLES
+
+html
+{
+    @extend %style-reset;
+    @extend %box-sizing;
+}
+
+body
+{
+    @extend %style-reset;
+    background:
+    {
+        color:  $white-dk;
+    }
+    font:
+    {
+        family: $fonts-sans;
+        size:   $font-base;
+    }
+}
+
+header
+{
+}
+
+nav
+{
+}
+
+div#myrr-content-wrapper
+{
+    @at-root
+    {
+        div#myrr-aside-wrapper
+        {
+            aside
+            {
+            }
+        }
+        div#myrr-article-wrapper
+        {
+            article
+            {
+            }
+        }
+    }
+}
+
+footer
+{
+}

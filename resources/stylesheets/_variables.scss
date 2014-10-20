@@ -1,0 +1,51 @@
+//  VARIABLES
+
+//  Colors
+$black:     hsla(000.00, 00.00%, 00.00%, 1.00);
+$black-lt:  hsla(000.00, 00.00%, 06.25%, 1.00);
+$grey-25:   hsla(000.00, 00.00%, 25.00%, 1.00);
+$grey-33:   hsla(000.00, 00.00%, 33.33%, 1.00);
+$grey-50:   hsla(000.00, 00.00%, 50.00%, 1.00);
+$grey-66:   hsla(000.00, 00.00%, 66.66%, 1.00);
+$grey-75:   hsla(000.00, 00.00%, 75.00%, 1.00);
+$white-dk:  hsla(000.00, 00.00%, 93.75%, 1.00);
+$white:     hsla(000.00, 00.00%, 100.0%, 1.00);
+//----------
+$red:       hsla(000.00, 80.00%, 25.00%, 1.00);
+$red-desat: hsla(000.00, 75.00%, 33.00%, 1.00);
+$brown:     hsla(021.00, 66.66%, 16.67%, 1.00);
+$tan:       hsla(036.00, 33.33%, 66.66%, 1.00);
+$parchment: hsla(040.00, 50.00%, 87.50%, 1.00);
+$grn:       hsla(120.00, 70.00%, 20.00%, 1.00);
+$grn-lt:    hsla(120.00, 80.00%, 33.33%, 1.00);
+$blu:       hsla(240.00, 90.00%, 33.33%, 1.00);
+
+//  Images
+$banner-bay:    url(/resources/images/banners/bay.jpg);
+$banner-cliff:  url(/resources/images/banners/cliff.jpg);
+$banner-dune:   url(/resources/images/banners/dune.jpg);
+$banner-dusk:   url(/resources/images/banners/dusk.jpg);
+$banner-field:  url(/resources/images/banners/field.jpg);
+$banner-water:  url(/resources/images/banners/waterfront.jpg);
+
+//  Fonts
+$font-base:       18px;
+$fonts-mono:      'Inconsolata-dz',
+                  'Inconsolata',
+                  'Ubuntu Mono',
+                  'Consolas',
+                  monospace;
+$fonts-sans:      'Roboto',
+                  sans-serif;
+$fonts-serif:     'Roboto Slab',
+                  'Georgia',
+                  serif;
+$fonts-headings:  'Amaranth',
+                  serif;
+$fonts-bodytext:  'Rosario',
+                  sans-serif;
+
+//  Dimensions
+$avatar-dim:        150px;
+$banner-height-sm:  166px;
+$banner-height-lg:  233px;

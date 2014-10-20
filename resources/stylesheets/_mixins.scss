@@ -1,0 +1,8 @@
+//  MIXINS AND FUNCTIONS
+
+//  Bespoke grey values
+//  INCLUDE THE PERCENT SIGN
+@function grey($val)
+{
+    @return hsla(000.00, 00.00%, $val, 1.00);
+}

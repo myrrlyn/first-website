@@ -1,0 +1,42 @@
+//  PSEUDOCLASSES
+
+//  Box-sizing method
+%box-sizing
+{
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+//  Heading styles
+%heading-styles
+{
+    font:
+    {
+        family: $fonts-headings;
+    }
+    margin:
+    {
+        left:   -0.5em;
+    }
+}
+//  Reset default styles implemented by browsers
+%style-reset
+{
+    margin:
+    {
+        top:    0;
+        left:   0;
+        right:  0;
+        bottom: 0;
+    }
+    padding:
+    {
+        top:    0;
+        left:   0;
+        right:  0;
+        bottom: 0;
+    }
+    position:   relative;
+    height: 100%;
+    width:  100%;
+}
