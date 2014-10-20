@@ -1,0 +1,19 @@
+# Visual Studio files
+*.config
+*.publishproj
+*.pubxml
+App_Data/
+bin/
+
+# Notepad++ files
+nppBackup/
+
+# Local copies of CDN libraries
+/resources/libraries/
+
+# Sass detritus
+.s[ac]ss-cache/
+*.s[ac]ssc
+
+# Windows detritus
+Thumbs.db
