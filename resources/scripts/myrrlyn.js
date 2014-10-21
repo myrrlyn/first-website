@@ -48,7 +48,7 @@ var SiteMap =
     Pages:
     {
         //  Default display page
-        DEFAULT: ["fonts", FontsPage],
+        DEFAULT: ["home", HomePage],
         //  About Me
         About: ["about", AboutMe],
         //  Font display page
