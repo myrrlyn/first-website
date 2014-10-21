@@ -1,0 +1,92 @@
+﻿@import url(http://fonts.googleapis.com/css?family=Amaranth);
+@import url(http://fonts.googleapis.com/css?family=Inconsolata);
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab);
+/*  === myrrlyn.scss ===
+ *  Custom site styles
+ *  Written by myrrlyn
+ *  Powered by WebEssentials
+ */
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+html, body {
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  position: relative;
+  height: 100%;
+  width: 100%; }
+
+@-webkit-viewport {
+  width: device-width; }
+
+@-moz-viewport {
+  width: device-width; }
+
+@-ms-viewport {
+  width: device-width; }
+
+@-o-viewport {
+  width: device-width; }
+
+@viewport {
+  width: device-width; }
+
+body {
+  background-color: #efefef;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px; }
+
+header {
+  background-image: url(/resources/images/banners/dusk.jpg);
+  background-position-x: center;
+  background-position-y: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 233px; }
+
+nav.navbar.navbar-default {
+  background-color: #555555;
+  border-color: #404040;
+  border-radius: 0;
+  border-style: solid;
+  border-width: 1px; }
+  nav.navbar.navbar-default button {
+    background-color: #666666;
+    border-color: #bfbfbf;
+    border-radius: 6px !important;
+    border-style: solid;
+    border-width: 1px; }
+    nav.navbar.navbar-default button span.icon-bar {
+      background-color: #bfbfbf !important; }
+    nav.navbar.navbar-default button:active, nav.navbar.navbar-default button:hover {
+      background-color: #efefef !important;
+      border-color: #555555 !important; }
+      nav.navbar.navbar-default button:active span.icon-bar, nav.navbar.navbar-default button:hover span.icon-bar {
+        background-color: #555555 !important; }
+  nav.navbar.navbar-default a.myrr-doc-loader {
+    color: #efefef !important;
+    font-family: 'Inconsolata-dz', 'Inconsolata', 'Ubuntu Mono', 'Consolas', monospace; }
+  nav.navbar.navbar-default ul.nav.navbar-nav li a:hover {
+    background-color: #808080 !important; }
+
+div#myrr-article-wrapper article#fonts-article table {
+  margin-left: auto;
+  margin-right: auto; }
+  div#myrr-article-wrapper article#fonts-article table thead th {
+    padding-left: 0.25em;
+    padding-right: 0.25em; }
+  div#myrr-article-wrapper article#fonts-article table tbody tr td {
+    text-align: center; }
+
+
+/*# sourceMappingURL=myrrlyn.css.map */

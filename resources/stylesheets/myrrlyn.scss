@@ -33,28 +33,155 @@ body
     }
 }
 
+//  Banner Image
 header
 {
+    background:
+    {
+        image:  $banner-dusk;
+        position:
+        {
+            x:  center;
+            y:  center;
+        }
+        repeat: no-repeat;
+        size:   cover;
+    }
+    height: $banner-height-lg;
 }
 
-nav
+//  Bootstrap requires overrides
+nav.navbar.navbar-default
 {
+    background:
+    {
+        color:  $grey-33;
+    }
+    border:
+    {
+        color:  $grey-25;
+        radius: 0;
+        style:  solid;
+        width:  1px;
+    }
+    a.myrr-page-loader
+    {
+
+    }
+    //  Mobile-only expander button
+    button
+    {
+        background:
+        {
+            color:  grey(40%);
+        }
+        border:
+        {
+            color:  $grey-75;
+            radius: 6px !important;
+            style:  solid;
+            width:  1px;
+        }
+        span.icon-bar
+        {
+            background:
+            {
+                color:  $grey-75 !important;
+            }
+        }
+        &:active,
+        &:hover
+        {
+            background:
+            {
+                color:  $white-dk !important;
+            }
+            border:
+            {
+                color:  $grey-33 !important;
+            }
+            span.icon-bar
+            {
+                background:
+                {
+                    color:  $grey-33 !important;
+                }
+            }
+        }
+    }
+    a.myrr-doc-loader
+    {
+        color:  $white-dk !important;
+        font:
+        {
+            family: $fonts-mono;
+        }
+    }
+    ul.nav.navbar-nav
+    {
+        li
+        {
+            a
+            {
+                &:hover
+                {
+                    background:
+                    {
+                        color:  $grey-50 !important;
+                    }
+                }
+            }
+        }
+    }
 }
 
 div#myrr-content-wrapper
 {
-    @at-root
+}
+div#myrr-aside-wrapper
+{
+    aside
     {
-        div#myrr-aside-wrapper
+    }
+}
+div#myrr-article-wrapper
+{
+    article
+    {
+        //  Fonts page
+        &#fonts-article
         {
-            aside
+            table
             {
-            }
-        }
-        div#myrr-article-wrapper
-        {
-            article
-            {
+                margin:
+                {
+                    left:   auto;
+                    right:  auto;
+                }
+                thead
+                {
+                    th
+                    {
+                        padding:
+                        {
+                            left:   0.25em;
+                            right:  0.25em;
+                        }
+                    }
+                }
+                tbody
+                {
+                    tr
+                    {
+                        td
+                        {
+                            text:
+                            {
+                                align:  center;
+                            }
+                        }
+                    }
+                }
             }
         }
     }

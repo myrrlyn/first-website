@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Font Displayer
+        </title>
+    </head>
+    <body>
+        <aside id="fonts-aside">
+            <script src="/resources/scripts/fonts.js"></script>
+            <p>
+                Click a font to preview and download it.
+            </p>
+            <p class="bold warning">
+                Dwemer requires installation.
+            </p>
+            <table>
+                <tbody class="center">
+                    <tr id="dun-plain"
+                        class="font-type">
+                        <td>
+                            Daedric
+                        </td>
+                        <td>
+                            <a href="/resources/fonts/Daedric-Plain.ttf">
+                                Daedric-Plain.ttf
+                            </a>
+                        </td>
+                    </tr>
+                    <tr id="dun-plain-worn"
+                        class="font-type">
+                        <td>
+                            Daedric &#40;Worn&#41;
+                        </td>
+                        <td>
+                            <a href="/resources/fonts/Daedric-Plain-Eroded.ttf">
+                                Daedric-Plain-Eroded.ttf
+                            </a>
+                        </td>
+                    </tr>
+                    <tr id="dun-script"
+                        class="font-type">
+                        <td>
+                            Daedric Script
+                        </td>
+                        <td>
+                            <a href="/resources/fonts/Daedric-Script.ttf">
+                                Daedric-Script.ttf
+                            </a>
+                        </td>
+                    </tr>
+                    <tr id="dun-script-worn"
+                        class="font-type">
+                        <td>
+                            Daedric Script &#40;Worn&#41;
+                        </td>
+                        <td>
+                            <a href="/resources/fonts/Daedric-Script-Eroded.ttf">
+                                Daedric-Script-Eroded.ttf
+                            </a>
+                        </td>
+                    </tr>
+                    <tr id="dun-cyber"
+                        class="font-type">
+                        <td>
+                            Cyber Daedric
+                        </td>
+                        <td>
+                            <a href="/resources/fonts/Daedric-Cyber.ttf">
+                                Daedric-Cyber.ttf
+                            </a>
+                        </td>
+                    </tr>
+                    <tr id="dovah"
+                        class="font-type">
+                        <td>
+                            Dovah
+                        </td>
+                        <td>
+                            <a href="/resources/fonts/Dovah.ttf">
+                                Dovah.ttf
+                            </a>
+                        </td>
+                    </tr>
+                    <tr id="dwemeris"
+                        class="font-type">
+                        <td>
+                            Dwemeris
+                        </td>
+                        <td>
+                            <a href="/resources/fonts/Dwemer.ttf">
+                                Dwemer.ttf
+                            </a>
+                        </td>
+                    </tr>
+                    <tr id="falmeris"
+                        class="font-type">
+                        <td>
+                            Falmeris
+                        </td>
+                        <td>
+                            <a href="/resources/fonts/Falmer.ttf">
+                                Falmer.ttf
+                            </a>
+                        </td>
+                    </tr>
+                    <tr id="inconsolata"
+                        class="font-type">
+                        <td>
+                            Inconsolata
+                        </td>
+                        <td>
+                            <a href="/resources/fonts/Inconsolata.otf">
+                                Inconsolata.otf
+                            </a>
+                        </td>
+                    </tr>
+                    <tr id="mage"
+                        class="font-type">
+                        <td>
+                            Mage Script
+                        </td>
+                        <td>
+                            <a href="/resources/fonts/Mage.ttf">
+                                Mage.ttf
+                            </a>
+                        </td>
+                    </tr>
+                    <tr id="planewalker"
+                        class="font-type">
+                        <td>
+                            Planewalker
+                        </td>
+                        <td>
+                            <a href="/resources/fonts/Planewalker.ttf">
+                                Planewalker.ttf
+                            </a>
+                        </td>
+                    </tr>
+                    <tr id="roboto"
+                        class="font-type">
+                        <td>
+                            Roboto
+                        </td>
+                        <td>
+                            <a href="/resources/fonts/Roboto.ttf">
+                                Roboto.ttf
+                            </a>
+                        </td>
+                    </tr>
+                    <tr id="sb-gaelic"
+                        class="font-type">
+                        <td>
+                            Skyrim Books: Gaelic
+                        </td>
+                        <td>
+                            <a href="/resources/fonts/Skyrim-Books-Gaelic.ttf">
+                                Skyrim-Books-Gaelic.ttf
+                            </a>
+                        </td>
+                    </tr>
+                    <tr id="sb-hand"
+                        class="font-type">
+                        <td>
+                            Skyrim Books: Handwritten
+                        </td>
+                        <td>
+                            <a href="/resources/fonts/Skyrim-Books-Hand.ttf">
+                                Skyrim-Books-Hand.ttf
+                            </a>
+                        </td>
+                    </tr>
+                    <tr id="sb-illegible"
+                        class="font-type">
+                        <td>
+                            Skyrim Books: Illegible
+                        </td>
+                        <td>
+                            <a href="/resources/fonts/Skyrim-Books-Illegible.ttf">
+                                Skyrim-Books-Illegible.ttf
+                            </a>
+                        </td>
+                    </tr>
+                    <tr id="s-sym"
+                        class="font-type">
+                        <td>
+                            Skyrim Symbols
+                        </td>
+                        <td>
+                            <a href="/resources/fonts/Skyrim-Symbols.ttf">
+                                Skyrim-Symbols.ttf
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </aside>
+        <article id="fonts-article">
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            Plain Caps
+                        </th>
+                        <th>
+                            Font Caps
+                        </th>
+                        <th>
+                            Plain Lower
+                        </th>
+                        <th>
+                            Font Lower
+                        </th>
+                        <th>
+                            Plain Number
+                        </th>
+                        <th>
+                            Font Number
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>a</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>b</td>
+                        <td>b</td>
+                        <td>b</td>
+                        <td>b</td>
+                        <td>1</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>c</td>
+                        <td>c</td>
+                        <td>c</td>
+                        <td>c</td>
+                        <td>2</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>d</td>
+                        <td>d</td>
+                        <td>d</td>
+                        <td>d</td>
+                        <td>3</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>e</td>
+                        <td>e</td>
+                        <td>e</td>
+                        <td>e</td>
+                        <td>4</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>f</td>
+                        <td>f</td>
+                        <td>f</td>
+                        <td>f</td>
+                        <td>5</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>g</td>
+                        <td>g</td>
+                        <td>g</td>
+                        <td>g</td>
+                        <td>6</td>
+                        <td>6</td>
+                    </tr>
+                    <tr>
+                        <td>h</td>
+                        <td>h</td>
+                        <td>h</td>
+                        <td>h</td>
+                        <td>7</td>
+                        <td>7</td>
+                    </tr>
+                    <tr>
+                        <td>i</td>
+                        <td>i</td>
+                        <td>i</td>
+                        <td>i</td>
+                        <td>8</td>
+                        <td>8</td>
+                    </tr>
+                    <tr>
+                        <td>j</td>
+                        <td>j</td>
+                        <td>j</td>
+                        <td>j</td>
+                        <td>9</td>
+                        <td>9</td>
+                    </tr>
+                    <tr>
+                        <td>k</td>
+                        <td>k</td>
+                        <td>k</td>
+                        <td>k</td>
+                    </tr>
+                    <tr>
+                        <td>l</td>
+                        <td>l</td>
+                        <td>l</td>
+                        <td>l</td>
+                    </tr>
+                    <tr>
+                        <td>m</td>
+                        <td>m</td>
+                        <td>m</td>
+                        <td>m</td>
+                    </tr>
+                    <tr>
+                        <td>n</td>
+                        <td>n</td>
+                        <td>n</td>
+                        <td>n</td>
+                    </tr>
+                    <tr>
+                        <td>o</td>
+                        <td>o</td>
+                        <td>o</td>
+                        <td>o</td>
+                    </tr>
+                    <tr>
+                        <td>p</td>
+                        <td>p</td>
+                        <td>p</td>
+                        <td>p</td>
+                    </tr>
+                    <tr>
+                        <td>q</td>
+                        <td>q</td>
+                        <td>q</td>
+                        <td>q</td>
+                    </tr>
+                    <tr>
+                        <td>r</td>
+                        <td>r</td>
+                        <td>r</td>
+                        <td>r</td>
+                    </tr>
+                    <tr>
+                        <td>s</td>
+                        <td>s</td>
+                        <td>s</td>
+                        <td>s</td>
+                    </tr>
+                    <tr>
+                        <td>t</td>
+                        <td>t</td>
+                        <td>t</td>
+                        <td>t</td>
+                    </tr>
+                    <tr>
+                        <td>u</td>
+                        <td>u</td>
+                        <td>u</td>
+                        <td>u</td>
+                    </tr>
+                    <tr>
+                        <td>v</td>
+                        <td>v</td>
+                        <td>v</td>
+                        <td>v</td>
+                    </tr>
+                    <tr>
+                        <td>w</td>
+                        <td>w</td>
+                        <td>w</td>
+                        <td>w</td>
+                    </tr>
+                    <tr>
+                        <td>x</td>
+                        <td>x</td>
+                        <td>x</td>
+                        <td>x</td>
+                    </tr>
+                    <tr>
+                        <td>y</td>
+                        <td>y</td>
+                        <td>y</td>
+                        <td>y</td>
+                    </tr>
+                    <tr>
+                        <td>z</td>
+                        <td>z</td>
+                        <td>z</td>
+                        <td>z</td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+    </body>
+</html>
