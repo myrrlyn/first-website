@@ -184,7 +184,7 @@ if (navigator.userAgent.match(/IEMobile\/10\.0/))
 //#endregion
 
 //  Toggles verbosity of debugging-specific console.log() calls
-var $DEBUGSTATUS = true;
+var $DEBUGSTATUS = false;
 var $ALERTSTATUS = false;
 function DebugPrint($DEBUGINFO)
 {
