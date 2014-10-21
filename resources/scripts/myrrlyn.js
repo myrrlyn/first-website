@@ -99,13 +99,22 @@ function Navigate($Page)
     DebugPrint("Aside:   " + $Aside);
     //  Load the aside first, since it is smaller.
     $(SiteMap.Wrappers.Aside).load($Aside);
-    //  Load the article second, since it is larger, and fire the $Callback script. The
-    //  callback will always be fired on the second AJAX load, regardless of the order
-    //  of text retrieval, since all the text needs to be loaded before the script can
-    //  reliably work. However, setTimeout($Function(), delay) needs to be inside the
-    //  declaration, not here. Irksome.
-    $(SiteMap.Wrappers.Article).load($Article, $Function());
+    //  $(SiteMap.Wrappers.Aside).load($Aside);
+    //  Load the article second, since it is larger, and fire the $Function argument as
+    //  a callback. This must always be done on the second AJAX request, even if the
+    //  section order is reversed, since all text must be delivered before the scripts
+    //  will execute properly. Wrapping our $Function in a setTimeout() call also serves
+    //  to detach execution of the callback function from the call stack, allowing
+    //  asynchronous processing of script and HTML. It's a good thing and magic. You
+    //  don't need to try to understand it, and I certainly don't.
     DebugPrint("Navigation attempted: " + $Page[0]);
+    $(SiteMap.Wrappers.Article).load($Article, function () { NavCallback($Function); });
+};
+function NavCallback($Function)
+{
+    DebugPrint("Load complete!");
+    setTimeout($Function(), 0);
+    DebugPrint("Callback executed!");
 };
 function NameResolve($DataAttr)
 {
@@ -158,7 +167,6 @@ function NameResolve($DataAttr)
 };
 //#endregion
 
-//function FontsPage() { DebugPrint("FontsPage function called"); }
 function AboutMe() { DebugPrint("AboutMe function called"); }
 function HomePage() { DebugPrint("HomePage function called"); }
 function KelJS() { DebugPrint("KelJS function called"); }
@@ -167,9 +175,6 @@ function IndexMetaphysics() { DebugPrint("IndexOeuvre function called"); }
 function IndexOrcpocrypha() { DebugPrint("IndexOeuvre function called"); }
 function IndexStories() { DebugPrint("IndexOeuvre function called"); }
 function Sermons() { DebugPrint("36 Sermons function called"); }
-
-//#region Font Kit
-//#endregion
 
 //#region Bugfixes
 

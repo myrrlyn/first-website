@@ -6,30 +6,29 @@
 
 function FontsPage()
 {
-    setTimeout(function()
+    DebugPrint("FontsPage function called");
+    $(FontKit.List.Parent).addClass('parent');
+    DebugPrint("Parents of List: " + FontKit.List.Parent);
+    $(FontKit.List.Child).addClass('child');
+    DebugPrint("Children of List: " + FontKit.List.Child);
+    //  Format display table
+    for (var idx = 0; idx < Cells.length; idx++)
     {
-        DebugPrint("FontsPage function called");
-        $(FontKit.List.Parent).addClass('parent');
-        DebugPrint("Parents of List: " + FontKit.List.Parent);
-        $(FontKit.List.Child).addClass('child');
-        DebugPrint("Children of List: " + FontKit.List.Child);
-        //  Format display table
-        for (var idx = 0; idx < Cells.length; idx++)
+        DebugPrint("Cell class: " + Cells[idx][1]);
+        for (var idy = 0; idy < Cells[idx][0].length; idy++)
         {
-            DebugPrint("Cell class: " + Cells[idx][1]);
-            for (var idy = 0; idy < Cells[idx][0].length; idy++)
-            {
-                //  Nested arrays require tricks to access properly.
-                $(Cells[idx][0][idy]).addClass(Cells[idx][1]);
-                DebugPrint("Cell: " + Cells[idx][0][idy]);
-            }
+            //  Nested arrays require tricks to access properly.
+            $(Cells[idx][0][idy]).addClass(Cells[idx][1]);
+            DebugPrint("Cell: " + Cells[idx][0][idy]);
         }
-    }, 50);
+    }
+    $(FontKit.List.All).click(function ()
+    {
+        DebugPrint("Font click event!");
+        var $SelectedFont = $('tr#' + this.id).attr('data-font');
+        ChangeFont($SelectedFont);
+    });
 };
-$(document).ready(function ()
-{
-    $(FontKit.List.All).click(ChangeFont($('tr#' + this.id).attr('data-font')));
-});
 function ChangeFont($NewFont)
 {
     DebugPrint("Font Changed!");
