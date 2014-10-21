@@ -30,6 +30,8 @@
               href="/resources/stylesheets/myrrlyn.min.css" />
         <!-- Scripts -->
         <script type="text/javascript"
+                src="/resources/scripts/fonts.js"></script>
+        <script type="text/javascript"
                 src="/resources/scripts/myrrlyn.js"></script>
     </head>
     <body>
@@ -37,21 +39,103 @@
             <!-- Placeholder for CSS image -->
         </header>
         <!-- Navigation bar -->
-        <nav>
-            <!-- Placeholder for Bootstrap-driven navigation bar -->
+        <nav id="topbar"
+             class="navbar
+                    navbar-default"
+             role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <!-- Appears on mobile, expands/collapses navmenu -->
+                    <button class="navbar-toggle"
+                            type="button"
+                            data-target="#nav-main"
+                            data-toggle="collapse">
+                        <span class="sr-only">
+                            Toggle Navigation
+                        </span>
+                        <!-- Horizontal bars in button -->
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- Primary (home) link -->
+                    <a href="#"
+                       id="homepage"
+                       class="navbar-brand
+                              myrr-page-loader"
+                       data-myrrPage="Home">
+                        myrrlyn
+                    </a>
+                    <!-- Navmenu targeted by button -->
+                    <div id="nav-main"
+                         class="navbar-collapse
+                                collapse
+                                myrr-page-loader">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a href="#"
+                                   id="info"
+                                   class="myrr-page-loader"
+                                   data-myrrPage="Info">
+                                    About Me
+                                </a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#"
+                                   id="oeuvre"
+                                   class="myrr-page-loader"
+                                   data-myrrPage="Oeuvre">
+                                    oeuvre myrrlyn
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                   id="sermons"
+                                   class="myrr-page-loader"
+                                   data-myrrPage="Sermons">
+                                    <i>The 36 Lessons of Vivec</i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                   id="fonts"
+                                   class="myrr-page-loader"
+                                   data-myrrPage="Fonts">
+                                    TES Font Resources
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                   id="keljs"
+                                   class="myrr-page-loader"
+                                   data-myrrPage="KelJS">
+                                    Prototype Elder Scroll
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </nav>
         <!-- Bootstrapped content container -->
-        <div id="myrr-content-wrapper">
-            <div id="myrr-aside-wrapper">
-                <!-- AJAX destination -->
-            </div>
-            <div id="myrr-article-wrapper">
-                <!-- AJAX destination -->
+        <div id="myrr-content-wrapper"
+             class="container-fluid">
+            <div class="row">
+                <div id="myrr-aside-wrapper"
+                     class="col-md-3">
+                    <!-- AJAX destination -->
+                </div>
+                <div id="myrr-article-wrapper"
+                     class="col-md-9">
+                    <!-- AJAX destination -->
+                </div>
             </div>
         </div>
         <footer>
             <!-- Footer text -->
-        </footer>
+        </footer><!--
+        <script type="text/javascript"
+                src="/resources/scripts/googleanalytics.js"></script>-->
     </body>
 </html>
 <!--    |

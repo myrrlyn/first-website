@@ -15,3 +15,36 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto+Condensed);
 @import url(http://fonts.googleapis.com/css?family=Roboto+Slab);
 //  @import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono);
+
+@mixin font($class, $name, $cap)
+{
+    @font-face
+    {
+        font-family:    #{$name};
+        src:            url(/resources/fonts/#{$name}.ttf);
+    }
+    .#{$class}
+    {
+        font-family:    #{$name};
+        @if ($cap == true)
+        {
+            text-transform: uppercase;
+        }
+    }
+}
+@include font(dunmeris,          Dunmeris,               false);
+@include font(dun-worn,          Dunmeris-Worn,          false);
+@include font(dun-script,        Dunmeris-Script,        false);
+@include font(dun-script-worn,   Dunmeris-Script-Worn,   false);
+@include font(dun-cyber,         Dunmeris-Cyber,         false);
+@include font(dovah,             Dovah,                  true);
+@include font(dwemeris,          Dwemeris,               true);
+@include font(falmeris,          Falmeris,               true);
+.inconsolata { font-family: 'Inconsolata-dz', 'Inconsolata'; }
+@include font(magnus,            Mage,                   true);
+@include font(planewalker,       Planewalker,            false);
+.roboto { font-family: 'Roboto'; }
+@include font(sb-gaelic,         Skyrim-Books-Gaelic,    false);
+@include font(sb-hand,           Skyrim-Books-Hand,      false);
+@include font(sb-illegible,      Skyrim-Books-Illegible, false);
+@include font(s-sym,             Skyrim-Symbols,         false);
