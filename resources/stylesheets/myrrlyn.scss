@@ -11,6 +11,15 @@
 @import "fonts";
 @import "bugs";
 
+//  FORMATTING STYLES
+.uppercase
+{
+    text:
+    {
+        transform:  uppercase;
+    }
+}
+
 //  STRUCTURAL STYLES
 
 html
@@ -142,6 +151,39 @@ div#myrr-aside-wrapper
 {
     aside
     {
+        div.image-wrap
+        {
+            background:
+            {
+                color:  transparent;
+            }
+            margin:
+            {
+                top:    0;
+                left:   auto;
+                right:  auto;
+                bottom: 1.25em;
+            }
+            width:  $avatar-dim;
+            a.image-box
+            {
+                img
+                {
+                    &.avatar
+                    {
+                        border:
+                        {
+                            color:  $grn;
+                            radius: 33px;
+                            style:  solid;
+                            width:  5px;
+                        }
+                    }
+                    height: $avatar-dim;
+                    width:  $avatar-dim;
+                }
+            }
+        }
     }
 }
 div#myrr-article-wrapper

@@ -48,7 +48,7 @@ var SiteMap =
     Pages:
     {
         //  Default display page
-        DEFAULT: ["home", HomePage],
+        DEFAULT: ["fonts", FontsPage],
         //  About Me
         About: ["about", AboutMe],
         //  Font display page
@@ -98,11 +98,12 @@ function Navigate($Page)
     DebugPrint("Article: " + $Article);
     DebugPrint("Aside:   " + $Aside);
     //  Load the aside first, since it is smaller.
-    $(SiteMap.Wrappers.Aside).load($Aside, $Function());
+    $(SiteMap.Wrappers.Aside).load($Aside);
     //  Load the article second, since it is larger, and fire the $Callback script. The
     //  callback will always be fired on the second AJAX load, regardless of the order
     //  of text retrieval, since all the text needs to be loaded before the script can
-    //  reliably work.
+    //  reliably work. However, setTimeout($Function(), delay) needs to be inside the
+    //  declaration, not here. Irksome.
     $(SiteMap.Wrappers.Article).load($Article, $Function());
     DebugPrint("Navigation attempted: " + $Page[0]);
 };
@@ -157,22 +158,18 @@ function NameResolve($DataAttr)
 };
 //#endregion
 
-//#region Font Kit
-function FontsPage()
-{
-    DebugPrint("FontsPage callback executed");
-    alert("FontsPage callback execution!");
-}
-//#endregion
-
+//function FontsPage() { DebugPrint("FontsPage function called"); }
 function AboutMe() { DebugPrint("AboutMe function called"); }
-function HomePage() { DebugPrint("HomePage function called"); alert("HomePage function called!"); }
+function HomePage() { DebugPrint("HomePage function called"); }
 function KelJS() { DebugPrint("KelJS function called"); }
 function IndexOeuvre() { DebugPrint("IndexOeuvre function called"); }
 function IndexMetaphysics() { DebugPrint("IndexOeuvre function called"); }
 function IndexOrcpocrypha() { DebugPrint("IndexOeuvre function called"); }
 function IndexStories() { DebugPrint("IndexOeuvre function called"); }
 function Sermons() { DebugPrint("36 Sermons function called"); }
+
+//#region Font Kit
+//#endregion
 
 //#region Bugfixes
 
@@ -188,6 +185,7 @@ if (navigator.userAgent.match(/IEMobile\/10\.0/))
 
 //  Toggles verbosity of debugging-specific console.log() calls
 var $DEBUGSTATUS = true;
+var $ALERTSTATUS = false;
 function DebugPrint($DEBUGINFO)
 {
     /// <summary>
@@ -198,4 +196,5 @@ function DebugPrint($DEBUGINFO)
     /// The information to be logged to console for debugging purposes.
     /// </param>
     if ($DEBUGSTATUS) console.log($DEBUGINFO);
+    if ($ALERTSTATUS) alert($DEBUGINFO);
 }

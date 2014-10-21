@@ -26,6 +26,114 @@ html, body {
   height: 100%;
   width: 100%; }
 
+@font-face {
+  font-family: Dunmeris;
+  src: url(/resources/fonts/Dunmeris.ttf); }
+
+.dunmeris {
+  font-family: Dunmeris; }
+
+@font-face {
+  font-family: Dunmeris-Worn;
+  src: url(/resources/fonts/Dunmeris-Worn.ttf); }
+
+.dun-worn {
+  font-family: Dunmeris-Worn; }
+
+@font-face {
+  font-family: Dunmeris-Script;
+  src: url(/resources/fonts/Dunmeris-Script.ttf); }
+
+.dun-script {
+  font-family: Dunmeris-Script; }
+
+@font-face {
+  font-family: Dunmeris-Script-Worn;
+  src: url(/resources/fonts/Dunmeris-Script-Worn.ttf); }
+
+.dun-script-worn {
+  font-family: Dunmeris-Script-Worn; }
+
+@font-face {
+  font-family: Dunmeris-Cyber;
+  src: url(/resources/fonts/Dunmeris-Cyber.ttf); }
+
+.dun-cyber {
+  font-family: Dunmeris-Cyber; }
+
+@font-face {
+  font-family: Dovah;
+  src: url(/resources/fonts/Dovah.ttf); }
+
+.dovah {
+  font-family: Dovah;
+  text-transform: uppercase; }
+
+@font-face {
+  font-family: Dwemeris;
+  src: url(/resources/fonts/Dwemeris.ttf); }
+
+.dwemeris {
+  font-family: Dwemeris;
+  text-transform: uppercase; }
+
+@font-face {
+  font-family: Falmeris;
+  src: url(/resources/fonts/Falmeris.ttf); }
+
+.falmeris {
+  font-family: Falmeris;
+  text-transform: uppercase; }
+
+.inconsolata {
+  font-family: 'Inconsolata-dz', 'Inconsolata'; }
+
+@font-face {
+  font-family: Mage;
+  src: url(/resources/fonts/Mage.ttf); }
+
+.magnus {
+  font-family: Mage;
+  text-transform: uppercase; }
+
+@font-face {
+  font-family: Planewalker;
+  src: url(/resources/fonts/Planewalker.ttf); }
+
+.planewalker {
+  font-family: Planewalker; }
+
+.roboto {
+  font-family: 'Roboto'; }
+
+@font-face {
+  font-family: Skyrim-Books-Gaelic;
+  src: url(/resources/fonts/Skyrim-Books-Gaelic.ttf); }
+
+.sb-gaelic {
+  font-family: Skyrim-Books-Gaelic; }
+
+@font-face {
+  font-family: Skyrim-Books-Hand;
+  src: url(/resources/fonts/Skyrim-Books-Hand.ttf); }
+
+.sb-hand {
+  font-family: Skyrim-Books-Hand; }
+
+@font-face {
+  font-family: Skyrim-Books-Illegible;
+  src: url(/resources/fonts/Skyrim-Books-Illegible.ttf); }
+
+.sb-illegible {
+  font-family: Skyrim-Books-Illegible; }
+
+@font-face {
+  font-family: Skyrim-Symbols;
+  src: url(/resources/fonts/Skyrim-Symbols.ttf); }
+
+.s-sym {
+  font-family: Skyrim-Symbols; }
+
 @-webkit-viewport {
   width: device-width; }
 
@@ -40,6 +148,9 @@ html, body {
 
 @viewport {
   width: device-width; }
+
+.uppercase {
+  text-transform: uppercase; }
 
 body {
   background-color: #efefef;
@@ -78,6 +189,22 @@ nav.navbar.navbar-default {
     font-family: 'Inconsolata-dz', 'Inconsolata', 'Ubuntu Mono', 'Consolas', monospace; }
   nav.navbar.navbar-default ul.nav.navbar-nav li a:hover {
     background-color: #808080 !important; }
+
+div#myrr-aside-wrapper aside div.image-wrap {
+  background-color: transparent;
+  margin-top: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.25em;
+  width: 150px; }
+  div#myrr-aside-wrapper aside div.image-wrap a.image-box img {
+    height: 150px;
+    width: 150px; }
+    div#myrr-aside-wrapper aside div.image-wrap a.image-box img.avatar {
+      border-color: #0f570f;
+      border-radius: 33px;
+      border-style: solid;
+      border-width: 5px; }
 
 div#myrr-article-wrapper article#fonts-article table {
   margin-left: auto;
