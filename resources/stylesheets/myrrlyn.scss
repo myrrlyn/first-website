@@ -184,6 +184,66 @@ div#myrr-aside-wrapper
                 }
             }
         }
+        //  Fonts page
+        &#fonts-aside
+        {
+            p.warning
+            {
+                color: $grn-lt;
+            }
+            dl
+            {
+                background:
+                {
+                    color: $grey-66;
+                }
+                border:
+                {
+                    //collapse:   collapse;
+                    color:  $grey-25;
+                    radius: 0;
+                    style:  solid;
+                    width:  3px;
+                }
+                margin:
+                {
+                    left:  auto;
+                    right: auto;
+                }
+                text:
+                {
+                    align: center;
+                }
+                dt
+                {
+                    border:
+                    {
+                        color:  $grey-25;
+                        width:  2px;
+                    }
+                    display:    block;
+                    width:  100%;
+                    &:active,
+                    &:hover
+                    {
+                        background:
+                        {
+                            color:  $grey-25;
+                        }
+                        color:  $white-dk;
+                    }
+                    &.parent
+                    {
+                        cursor: default;
+                    }
+                }
+                dd
+                {
+                    cursor: pointer;
+                    display:    none;
+                }
+            }
+        }
     }
 }
 div#myrr-article-wrapper

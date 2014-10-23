@@ -22,11 +22,18 @@ function FontsPage()
             DebugPrint("Cell: " + Cells[idx][0][idy]);
         }
     }
-    $(FontKit.List.All).click(function ()
+    $(FontKit.List.Parent).click(function ShowFont()
     {
         DebugPrint("Font click event!");
-        var $SelectedFont = $('tr#' + this.id).attr('data-font');
+        var $SelectedFont = $('#' + this.id).attr('data-font');
+        DebugPrint('data-font attribute: ' + $SelectedFont);
         ChangeFont($SelectedFont);
+    });
+    $('dt.parent').click(function ToggleResource()
+    {
+        $(this).addClass('slide-toggle');
+        $('dt.parent.slide-toggle + dd.child').slideToggle('1000');
+        $(this).removeClass('slide-toggle');
     });
 };
 function ChangeFont($NewFont)
@@ -48,9 +55,9 @@ var FontKit =
 {
     List:
     {
-        All: 'aside table tr',
-        Parent: 'aside table td:nth-child(1)',
-        Child: 'aside table td:nth-child(2)'
+        All: 'aside dl dt, aside dl dd',
+        Parent: 'aside dl dt',
+        Child: 'aside dl dd'
     },
     Display:
     {

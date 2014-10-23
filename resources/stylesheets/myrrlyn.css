@@ -28,58 +28,58 @@ html, body {
 
 @font-face {
   font-family: Dunmeris;
-  src: url(/resources/fonts/Dunmeris.ttf); }
+  src: url('/resources/fonts/Dunmeris.ttf'); }
 
 .dunmeris {
   font-family: Dunmeris; }
 
 @font-face {
   font-family: Dunmeris-Worn;
-  src: url(/resources/fonts/Dunmeris-Worn.ttf); }
+  src: url('/resources/fonts/Dunmeris-Worn.ttf'); }
 
-.dun-worn {
+.dunmeris-worn {
   font-family: Dunmeris-Worn; }
 
 @font-face {
   font-family: Dunmeris-Script;
-  src: url(/resources/fonts/Dunmeris-Script.ttf); }
+  src: url('/resources/fonts/Dunmeris-Script.ttf'); }
 
-.dun-script {
+.dunmeris-script {
   font-family: Dunmeris-Script; }
 
 @font-face {
   font-family: Dunmeris-Script-Worn;
-  src: url(/resources/fonts/Dunmeris-Script-Worn.ttf); }
+  src: url('/resources/fonts/Dunmeris-Script-Worn.ttf'); }
 
-.dun-script-worn {
+.dunmeris-script-worn {
   font-family: Dunmeris-Script-Worn; }
 
 @font-face {
   font-family: Dunmeris-Cyber;
-  src: url(/resources/fonts/Dunmeris-Cyber.ttf); }
+  src: url('/resources/fonts/Dunmeris-Cyber.ttf'); }
 
-.dun-cyber {
+.dunmeris-cyber {
   font-family: Dunmeris-Cyber; }
 
 @font-face {
   font-family: Dovah;
-  src: url(/resources/fonts/Dovah.ttf); }
+  src: url('/resources/fonts/Dovah.ttf'); }
 
 .dovah {
   font-family: Dovah;
   text-transform: uppercase; }
 
 @font-face {
-  font-family: Dwemeris;
-  src: url(/resources/fonts/Dwemeris.ttf); }
+  font-family: Dwemer;
+  src: url('/resources/fonts/Dwemer.ttf'); }
 
 .dwemeris {
-  font-family: Dwemeris;
+  font-family: Dwemer;
   text-transform: uppercase; }
 
 @font-face {
   font-family: Falmeris;
-  src: url(/resources/fonts/Falmeris.ttf); }
+  src: url('/resources/fonts/Falmeris.ttf'); }
 
 .falmeris {
   font-family: Falmeris;
@@ -90,7 +90,7 @@ html, body {
 
 @font-face {
   font-family: Mage;
-  src: url(/resources/fonts/Mage.ttf); }
+  src: url('/resources/fonts/Mage.ttf'); }
 
 .magnus {
   font-family: Mage;
@@ -98,7 +98,7 @@ html, body {
 
 @font-face {
   font-family: Planewalker;
-  src: url(/resources/fonts/Planewalker.ttf); }
+  src: url('/resources/fonts/Planewalker.ttf'); }
 
 .planewalker {
   font-family: Planewalker; }
@@ -108,30 +108,30 @@ html, body {
 
 @font-face {
   font-family: Skyrim-Books-Gaelic;
-  src: url(/resources/fonts/Skyrim-Books-Gaelic.ttf); }
+  src: url('/resources/fonts/Skyrim-Books-Gaelic.ttf'); }
 
 .sb-gaelic {
   font-family: Skyrim-Books-Gaelic; }
 
 @font-face {
   font-family: Skyrim-Books-Hand;
-  src: url(/resources/fonts/Skyrim-Books-Hand.ttf); }
+  src: url('/resources/fonts/Skyrim-Books-Hand.ttf'); }
 
 .sb-hand {
   font-family: Skyrim-Books-Hand; }
 
 @font-face {
   font-family: Skyrim-Books-Illegible;
-  src: url(/resources/fonts/Skyrim-Books-Illegible.ttf); }
+  src: url('/resources/fonts/Skyrim-Books-Illegible.ttf'); }
 
 .sb-illegible {
   font-family: Skyrim-Books-Illegible; }
 
 @font-face {
   font-family: Skyrim-Symbols;
-  src: url(/resources/fonts/Skyrim-Symbols.ttf); }
+  src: url('/resources/fonts/Skyrim-Symbols.ttf'); }
 
-.s-sym {
+.sr-sym {
   font-family: Skyrim-Symbols; }
 
 @-webkit-viewport {
@@ -205,6 +205,30 @@ div#myrr-aside-wrapper aside div.image-wrap {
       border-radius: 33px;
       border-style: solid;
       border-width: 5px; }
+div#myrr-aside-wrapper aside#fonts-aside p.warning {
+  color: #119911; }
+div#myrr-aside-wrapper aside#fonts-aside dl {
+  background-color: #aaaaaa;
+  border-color: #404040;
+  border-radius: 0;
+  border-style: solid;
+  border-width: 3px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center; }
+  div#myrr-aside-wrapper aside#fonts-aside dl dt {
+    border-color: #404040;
+    border-width: 2px;
+    display: block;
+    width: 100%; }
+    div#myrr-aside-wrapper aside#fonts-aside dl dt:active, div#myrr-aside-wrapper aside#fonts-aside dl dt:hover {
+      background-color: #404040;
+      color: #efefef; }
+    div#myrr-aside-wrapper aside#fonts-aside dl dt.parent {
+      cursor: default; }
+  div#myrr-aside-wrapper aside#fonts-aside dl dd {
+    cursor: pointer;
+    display: none; }
 
 div#myrr-article-wrapper article#fonts-article table {
   margin-left: auto;
