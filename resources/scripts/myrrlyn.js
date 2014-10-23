@@ -202,4 +202,4 @@ function DebugPrint($DEBUGINFO)
     /// </param>
     if ($DEBUGSTATUS) console.log($DEBUGINFO);
     if ($ALERTSTATUS) alert($DEBUGINFO);
-}
+};

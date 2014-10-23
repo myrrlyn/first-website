@@ -21,7 +21,7 @@
     @font-face
     {
         font-family:    #{$name};
-        src:            url(/resources/fonts/#{$name}.ttf);
+        src:            url('/resources/fonts/#{$name}.ttf');
     }
     .#{$class}
     {
@@ -32,19 +32,19 @@
         }
     }
 }
-@include font(dunmeris,          Dunmeris,               false);
-@include font(dun-worn,          Dunmeris-Worn,          false);
-@include font(dun-script,        Dunmeris-Script,        false);
-@include font(dun-script-worn,   Dunmeris-Script-Worn,   false);
-@include font(dun-cyber,         Dunmeris-Cyber,         false);
-@include font(dovah,             Dovah,                  true);
-@include font(dwemeris,          Dwemeris,               true);
-@include font(falmeris,          Falmeris,               true);
+@include font(dunmeris,             'Dunmeris',             false);
+@include font(dunmeris-worn,        Dunmeris-Worn,          false);
+@include font(dunmeris-script,      Dunmeris-Script,        false);
+@include font(dunmeris-script-worn, Dunmeris-Script-Worn,   false);
+@include font(dunmeris-cyber,       Dunmeris-Cyber,         false);
+@include font(dovah,                Dovah,                  true);
+@include font(dwemeris,             Dwemer,                 true);
+@include font(falmeris,             Falmeris,               true);
 .inconsolata { font-family: 'Inconsolata-dz', 'Inconsolata'; }
-@include font(magnus,            Mage,                   true);
-@include font(planewalker,       Planewalker,            false);
+@include font(magnus,               Mage,                   true);
+@include font(planewalker,          Planewalker,            false);
 .roboto { font-family: 'Roboto'; }
-@include font(sb-gaelic,         Skyrim-Books-Gaelic,    false);
-@include font(sb-hand,           Skyrim-Books-Hand,      false);
-@include font(sb-illegible,      Skyrim-Books-Illegible, false);
-@include font(s-sym,             Skyrim-Symbols,         false);
+@include font(sb-gaelic,            Skyrim-Books-Gaelic,    false);
+@include font(sb-hand,              Skyrim-Books-Hand,      false);
+@include font(sb-illegible,         Skyrim-Books-Illegible, false);
+@include font(sr-sym,               Skyrim-Symbols,         false);
