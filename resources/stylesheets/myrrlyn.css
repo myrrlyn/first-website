@@ -1,4 +1,4 @@
-﻿@import url(http://fonts.googleapis.com/css?family=Amaranth);
+@import url(http://fonts.googleapis.com/css?family=Amaranth);
 @import url(http://fonts.googleapis.com/css?family=Inconsolata);
 @import url(http://fonts.googleapis.com/css?family=Roboto);
 @import url(http://fonts.googleapis.com/css?family=Roboto+Condensed);
@@ -28,38 +28,35 @@ html, body {
 
 @font-face {
   font-family: Dunmeris;
-  src: url('/resources/fonts/Dunmeris.ttf'); }
+  src: url('/resources/fonts/Daedric-Plain.ttf'); }
 
 .dunmeris {
   font-family: Dunmeris; }
 
 @font-face {
   font-family: Dunmeris-Worn;
-  src: url('/resources/fonts/Dunmeris-Worn.ttf'); }
+  src: url('/resources/fonts/Daedric-Plain-Eroded.ttf'); }
 
 .dunmeris-worn {
   font-family: Dunmeris-Worn; }
 
 @font-face {
   font-family: Dunmeris-Script;
-  src: url('/resources/fonts/Dunmeris-Script.ttf'); }
+  src: url('/resources/fonts/Daedric-Script.ttf'); }
 
 .dunmeris-script {
   font-family: Dunmeris-Script; }
 
 @font-face {
   font-family: Dunmeris-Script-Worn;
-  src: url('/resources/fonts/Dunmeris-Script-Worn.ttf'); }
+  src: url('/resources/fonts/Daedric-Script-Eroded.ttf'); }
 
 .dunmeris-script-worn {
   font-family: Dunmeris-Script-Worn; }
 
-@font-face {
-  font-family: Dunmeris-Cyber;
-  src: url('/resources/fonts/Dunmeris-Cyber.ttf'); }
-
 .dunmeris-cyber {
-  font-family: Dunmeris-Cyber; }
+  font-family: 'Cyberpunk Daedric';
+  text-transform: uppercase; }
 
 @font-face {
   font-family: Dovah;
@@ -79,7 +76,7 @@ html, body {
 
 @font-face {
   font-family: Falmeris;
-  src: url('/resources/fonts/Falmeris.ttf'); }
+  src: url('/resources/fonts/Falmer.ttf'); }
 
 .falmeris {
   font-family: Falmeris;
@@ -89,11 +86,11 @@ html, body {
   font-family: 'Inconsolata-dz', 'Inconsolata'; }
 
 @font-face {
-  font-family: Mage;
+  font-family: Magnus;
   src: url('/resources/fonts/Mage.ttf'); }
 
 .magnus {
-  font-family: Mage;
+  font-family: Magnus;
   text-transform: uppercase; }
 
 @font-face {
@@ -129,7 +126,7 @@ html, body {
 
 @font-face {
   font-family: Skyrim-Symbols;
-  src: url('/resources/fonts/Skyrim-Symbols.ttf'); }
+  src: url('/resources/fonts/Skyrim-Books-Symbols.ttf'); }
 
 .sr-sym {
   font-family: Skyrim-Symbols; }
@@ -205,9 +202,9 @@ div#myrr-aside-wrapper aside div.image-wrap {
       border-radius: 33px;
       border-style: solid;
       border-width: 5px; }
-div#myrr-aside-wrapper aside#fonts-aside p.warning {
+div#myrr-aside-wrapper aside.fonts p.warning {
   color: #119911; }
-div#myrr-aside-wrapper aside#fonts-aside dl {
+div#myrr-aside-wrapper aside.fonts dl {
   background-color: #aaaaaa;
   border-color: #404040;
   border-radius: 0;
@@ -216,28 +213,32 @@ div#myrr-aside-wrapper aside#fonts-aside dl {
   margin-left: auto;
   margin-right: auto;
   text-align: center; }
-  div#myrr-aside-wrapper aside#fonts-aside dl dt {
+  div#myrr-aside-wrapper aside.fonts dl dt {
     border-color: #404040;
     border-width: 2px;
     display: block;
     width: 100%; }
-    div#myrr-aside-wrapper aside#fonts-aside dl dt:active, div#myrr-aside-wrapper aside#fonts-aside dl dt:hover {
+    div#myrr-aside-wrapper aside.fonts dl dt:active, div#myrr-aside-wrapper aside.fonts dl dt:hover {
       background-color: #404040;
       color: #efefef; }
-    div#myrr-aside-wrapper aside#fonts-aside dl dt.parent {
+    div#myrr-aside-wrapper aside.fonts dl dt.parent {
       cursor: default; }
-  div#myrr-aside-wrapper aside#fonts-aside dl dd {
+  div#myrr-aside-wrapper aside.fonts dl dd {
     cursor: pointer;
     display: none; }
 
-div#myrr-article-wrapper article#fonts-article table {
+div#myrr-article-wrapper article.fonts table {
   margin-left: auto;
   margin-right: auto; }
-  div#myrr-article-wrapper article#fonts-article table thead th {
+  div#myrr-article-wrapper article.fonts table thead th {
     padding-left: 0.25em;
     padding-right: 0.25em; }
-  div#myrr-article-wrapper article#fonts-article table tbody tr td {
+  div#myrr-article-wrapper article.fonts table tbody tr td {
     text-align: center; }
+div#myrr-article-wrapper article.oeuvre {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 60em; }
 
 
 /*# sourceMappingURL=myrrlyn.css.map */

@@ -16,12 +16,12 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto+Slab);
 //  @import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono);
 
-@mixin font($class, $name, $cap)
+@mixin font($class, $name, $file, $cap)
 {
     @font-face
     {
         font-family:    #{$name};
-        src:            url('/resources/fonts/#{$name}.ttf');
+        src:            url('/resources/fonts/#{$file}.ttf');
     }
     .#{$class}
     {
@@ -32,19 +32,19 @@
         }
     }
 }
-@include font(dunmeris,             'Dunmeris',             false);
-@include font(dunmeris-worn,        Dunmeris-Worn,          false);
-@include font(dunmeris-script,      Dunmeris-Script,        false);
-@include font(dunmeris-script-worn, Dunmeris-Script-Worn,   false);
-@include font(dunmeris-cyber,       Dunmeris-Cyber,         false);
-@include font(dovah,                Dovah,                  true);
-@include font(dwemeris,             Dwemer,                 true);
-@include font(falmeris,             Falmeris,               true);
+@include font(dunmeris,             Dunmeris,               Daedric-Plain,          false);
+@include font(dunmeris-worn,        Dunmeris-Worn,          Daedric-Plain-Eroded,   false);
+@include font(dunmeris-script,      Dunmeris-Script,        Daedric-Script,         false);
+@include font(dunmeris-script-worn, Dunmeris-Script-Worn,   Daedric-Script-Eroded,  false);
+.dunmeris-cyber { font-family: 'Cyberpunk Daedric'; text-transform: uppercase; }
+@include font(dovah,                Dovah,                  Dovah,                  true);
+@include font(dwemeris,             Dwemer,                 Dwemer,                 true);
+@include font(falmeris,             Falmeris,               Falmer,                 true);
 .inconsolata { font-family: 'Inconsolata-dz', 'Inconsolata'; }
-@include font(magnus,               Mage,                   true);
-@include font(planewalker,          Planewalker,            false);
+@include font(magnus,               Magnus,                  Mage,                  true);
+@include font(planewalker,          Planewalker,            Planewalker,            false);
 .roboto { font-family: 'Roboto'; }
-@include font(sb-gaelic,            Skyrim-Books-Gaelic,    false);
-@include font(sb-hand,              Skyrim-Books-Hand,      false);
-@include font(sb-illegible,         Skyrim-Books-Illegible, false);
-@include font(sr-sym,               Skyrim-Symbols,         false);
+@include font(sb-gaelic,            Skyrim-Books-Gaelic,    Skyrim-Books-Gaelic,    false);
+@include font(sb-hand,              Skyrim-Books-Hand,      Skyrim-Books-Hand,      false);
+@include font(sb-illegible,         Skyrim-Books-Illegible, Skyrim-Books-Illegible, false);
+@include font(sr-sym,               Skyrim-Symbols,         Skyrim-Books-Symbols,   false);

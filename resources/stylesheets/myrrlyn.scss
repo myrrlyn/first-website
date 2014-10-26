@@ -185,7 +185,7 @@ div#myrr-aside-wrapper
             }
         }
         //  Fonts page
-        &#fonts-aside
+        &.fonts
         {
             p.warning
             {
@@ -251,7 +251,7 @@ div#myrr-article-wrapper
     article
     {
         //  Fonts page
-        &#fonts-article
+        &.fonts
         {
             table
             {
@@ -285,6 +285,15 @@ div#myrr-article-wrapper
                     }
                 }
             }
+        }
+        &.oeuvre
+        {
+            margin:
+            {
+                left:   auto;
+                right:  auto;
+            }
+            max-width: 60em;
         }
     }
 }
