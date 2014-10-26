@@ -7,6 +7,8 @@
 //  Direct Execution
 $(document).ready(function ()
 {
+    //  Pick a banner
+    Banners.Pick();
     //  Execute default page load
     DebugPrint("Attempting initial pageload: " + SiteMap.Pages.DEFAULT[0]);
     Navigate(SiteMap.Pages.DEFAULT);
@@ -88,13 +90,16 @@ function Navigate($Page)
     /// <param name="$Page" type="Array">
     /// Tuple of ["name", callback()] containing the AJAX file and callback function.
     /// </param>
-    $FilePath = SiteMap.Bin + $Page[0] + ".html ";
+
+    //  Pick a new banner
+    Banners.Pick();
+    $FilePath = SiteMap.Bin + $Page[0] + ".html";
     DebugPrint("File Path: " + $FilePath);
     $Function = $Page[1];
     DebugPrint("Function Call: " + $Function);
     //  Pull article and aside elements from document
-    $Article  = $FilePath + "article";
-    $Aside    = $FilePath + "aside";
+    $Article = $FilePath + " article";
+    $Aside   = $FilePath + " aside";
     DebugPrint("Article: " + $Article);
     DebugPrint("Aside:   " + $Aside);
     //  Load the aside first, since it is smaller.
@@ -165,6 +170,108 @@ function NameResolve($DataAttr)
     }
     return $Resolve;
 };
+
+//#endregion
+
+//#region Banners
+
+var Banners =
+{
+    Bin: "/resources/images/banners/",
+    Images:
+    [
+        {
+            Image: "bay.jpg",
+            Dimensions:
+            {
+                X: 3944,
+                Y: 1063
+            },
+            Position:
+            {
+                X: "center",
+                Y: "center"
+            }
+        },
+        {
+            Image: "cliff.jpg",
+            Dimensions:
+            {
+                X: 8049,
+                Y: 1777
+            },
+            Position:
+            {
+                X: "right",
+                Y: ""
+            }
+        },
+        {
+            Image: "bay.jpg",
+            Dimensions:
+            {
+                X: 10904,
+                Y: 1889
+            },
+            Position:
+            {
+                X: "left",
+                Y: "center"
+            }
+        },
+        {
+            Image: "dusk.jpg",
+            Dimensions:
+            {
+                X: 5445,
+                Y: 1964
+            },
+            Position:
+            {
+                X: "center",
+                Y: "center"
+            }
+        },
+        {
+            Image: "field.jpg",
+            Dimensions:
+            {
+                X: 7219,
+                Y: 1981
+            },
+            Position:
+            {
+                X: "left",
+                Y: "center"
+            }
+        },
+        {
+            Image: "waterfront.jpg",
+            Dimensions:
+            {
+                X: 12102,
+                Y: 1873
+            },
+            Position:
+            {
+                X: "center",
+                Y: "center"
+            }
+        }
+    ],
+    Pick: function()
+    {
+        var RandBanner = Banners.Images[Math.floor(Math.random() * Banners.Images.length)];
+        DebugPrint("Random Banner: " + RandBanner.Image);
+        var CSS =
+        {
+            'background-image':    'url(' + Banners.Bin + RandBanner.Image + ')',
+            'background-position': RandBanner.Position.X + " " + RandBanner.Position.Y
+        };
+        $('header').css(CSS);
+    }
+}
+
 //#endregion
 
 function AboutMe() { DebugPrint("AboutMe function called"); }
