@@ -17,10 +17,12 @@
               href="/resources/icons/Aes_Sedai_Seal_0064.png" />
         <!-- jQuery -->
         <script type="text/javascript"
-                src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+                src="//code.jquery.com/jquery-2.1.1.min.js">
+        </script>
         <!-- Bootstrap -->
         <script type="text/javascript"
-                src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+                src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js">
+        </script>
         <link rel="stylesheet"
               type="text/css"
               href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
@@ -30,9 +32,14 @@
               href="/resources/stylesheets/myrrlyn.min.css" />
         <!-- Scripts -->
         <script type="text/javascript"
-                src="/resources/scripts/fonts.js"></script>
+                src="/resources/scripts/fonts.js">
+        </script>
         <script type="text/javascript"
-                src="/resources/scripts/myrrlyn.js"></script>
+                src="/resources/scripts/oeuvre.js">
+        </script>
+        <script type="text/javascript"
+                src="/resources/scripts/myrrlyn.js">
+        </script>
     </head>
     <body>
         <header>
@@ -61,16 +68,13 @@
                     <!-- Primary (home) link -->
                     <a href="#"
                        id="homepage"
-                       class="navbar-brand
-                              myrr-page-loader"
+                       class="navbar-brand myrr-page-loader"
                        data-myrrPage="Home">
                         myrrlyn
                     </a>
                     <!-- Navmenu targeted by button -->
                     <div id="nav-main"
-                         class="navbar-collapse
-                                collapse
-                                myrr-page-loader">
+                         class="navbar-collapse collapse myrr-page-loader">
                         <ul class="nav navbar-nav">
                             <li>
                                 <a href="#"
@@ -83,10 +87,39 @@
                             <li class="dropdown">
                                 <a href="#"
                                    id="oeuvre"
-                                   class="myrr-page-loader"
+                                   class="myrr-page-loader dropdown-toggle"
+                                   data-toggle="dropdown"
                                    data-myrrPage="Oeuvre">
                                     oeuvre myrrlyn
+                                    <span class="caret"></span>
                                 </a>
+                                <ul class="dropdown-menu"
+                                    role="menu">
+                                    <li>
+                                        <a href="#"
+                                           id="orcpocrypha"
+                                           class="myrr-page-loader"
+                                           data-myrrPage="Orcpocrypha">
+                                            Orcpocrypha
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"
+                                           id="metaphysics"
+                                           class="myrr-page-loader"
+                                           data-myrrPage="Metaphysics">
+                                            Metaphysical Essays
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"
+                                           id="Stories"
+                                           class="myrr-page-loader"
+                                           data-myrrPage="Stories">
+                                            Stories of Tamriel
+                                        </a>
+                                    </li>
+                                </ul>
                             </li>
                             <li>
                                 <a href="#"
@@ -130,12 +163,18 @@
                     <!-- AJAX destination -->
                 </div>
             </div>
+            <div class="row">
+                <div id="myrr-fakebar"
+                     class="col-md-3">
+                </div>
+            </div>
         </div>
         <footer>
             <!-- Footer text -->
         </footer>
         <script type="text/javascript"
-                src="/resources/scripts/googleanalytics.js"></script>
+                src="/resources/scripts/googleanalytics.js">
+        </script>
     </body>
 </html>
 <!--    |

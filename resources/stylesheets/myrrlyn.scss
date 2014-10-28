@@ -1,7 +1,7 @@
-/*  === myrrlyn.scss ===
- *  Custom site styles
- *  Written by myrrlyn
- *  Powered by WebEssentials
+/* === myrrlyn.scss ===
+ * Custom site styles
+ * Written by myrrlyn
+ * Powered by WebEssentials
  */
 
 //  Imports
@@ -14,10 +14,7 @@
 //  FORMATTING STYLES
 .uppercase
 {
-    text:
-    {
-        transform:  uppercase;
-    }
+    text-transform: uppercase;
 }
 
 //  STRUCTURAL STYLES
@@ -33,7 +30,7 @@ body
     @extend %style-reset;
     background:
     {
-        color:  $white-dk;
+        color: $white-dk;
     }
     font:
     {
@@ -47,11 +44,11 @@ header
 {
     background:
     {
-        image:  $banner-dusk;
+        image: $banner-dusk;
         position:
         {
-            x:  center;
-            y:  center;
+            x: center;
+            y: center;
         }
         repeat: no-repeat;
         size:   cover;
@@ -82,7 +79,7 @@ nav.navbar.navbar-default
     {
         background:
         {
-            color:  grey(40%);
+            color: grey(40%);
         }
         border:
         {
@@ -95,7 +92,7 @@ nav.navbar.navbar-default
         {
             background:
             {
-                color:  $grey-75 !important;
+                color: $grey-75 !important;
             }
         }
         &:active,
@@ -103,24 +100,24 @@ nav.navbar.navbar-default
         {
             background:
             {
-                color:  $white-dk !important;
+                color: $white-dk !important;
             }
             border:
             {
-                color:  $grey-33 !important;
+                color: $grey-33 !important;
             }
             span.icon-bar
             {
                 background:
                 {
-                    color:  $grey-33 !important;
+                    color: $grey-33 !important;
                 }
             }
         }
     }
     a.myrr-doc-loader
     {
-        color:  $white-dk !important;
+        color: $white-dk !important;
         font:
         {
             family: $fonts-mono;
@@ -136,7 +133,7 @@ nav.navbar.navbar-default
                 {
                     background:
                     {
-                        color:  $grey-50 !important;
+                        color: $grey-50 !important;
                     }
                 }
             }
@@ -147,8 +144,36 @@ nav.navbar.navbar-default
 div#myrr-content-wrapper
 {
 }
+div#myrr-fakebar
+{
+    background:
+    {
+        image: url(/resources/images/dark-bg.png);
+    }
+    @media screen and (min-width: 992px)
+    {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+    }
+    z-index: -50;
+}
 div#myrr-aside-wrapper
 {
+    @media screen and (max-width: 991px)
+    {
+        background:
+        {
+            image: url(/resources/images/dark-bg.png);
+        }
+        margin-top:    -20px;
+        padding:
+        {
+            top:    10px;
+            bottom: 10px;
+        }
+    }
+    color: $white-dk;
     aside
     {
         div.image-wrap
@@ -185,7 +210,7 @@ div#myrr-aside-wrapper
             }
         }
         //  Fonts page
-        &#fonts-aside
+        &.fonts
         {
             p.warning
             {
@@ -218,19 +243,19 @@ div#myrr-aside-wrapper
                 {
                     border:
                     {
-                        color:  $grey-25;
-                        width:  2px;
+                        color: $grey-25;
+                        width: 2px;
                     }
-                    display:    block;
-                    width:  100%;
+                    display: block;
+                    width:   100%;
                     &:active,
                     &:hover
                     {
                         background:
                         {
-                            color:  $grey-25;
+                            color: $grey-25;
                         }
-                        color:  $white-dk;
+                        color: $white-dk;
                     }
                     &.parent
                     {
@@ -239,8 +264,53 @@ div#myrr-aside-wrapper
                 }
                 dd
                 {
+                    cursor:  pointer;
+                    display: none;
+                }
+            }
+        }
+        //  Oeuvre Index
+        &.oeuvre
+        {
+            //  Category lists
+            h2.category
+            {
+                cursor: default;
+                &::after
+                {
                     cursor: pointer;
-                    display:    none;
+                    font:
+                    {
+                        family: $fonts-mono;
+                        size:   50%;
+                    }
+                    vertical-align: middle;
+                }
+                &.closed
+                {
+                    &::after
+                    {
+                        content: '[+]';
+                    }
+                }
+                &.open
+                {
+                    &::after
+                    {
+                        content: '[-]';
+                    }
+                }
+            }
+            ol
+            {
+                display: none;
+            }
+            //  Titles
+            span.title
+            {
+                font:
+                {
+                    style: italic;
                 }
             }
         }
@@ -251,14 +321,14 @@ div#myrr-article-wrapper
     article
     {
         //  Fonts page
-        &#fonts-article
+        &.fonts
         {
             table
             {
                 margin:
                 {
-                    left:   auto;
-                    right:  auto;
+                    left:  auto;
+                    right: auto;
                 }
                 thead
                 {
@@ -266,8 +336,8 @@ div#myrr-article-wrapper
                     {
                         padding:
                         {
-                            left:   0.25em;
-                            right:  0.25em;
+                            left:  0.25em;
+                            right: 0.25em;
                         }
                     }
                 }
@@ -279,7 +349,147 @@ div#myrr-article-wrapper
                         {
                             text:
                             {
-                                align:  center;
+                                align: center;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &.oeuvre
+        {
+            font:
+            {
+                family: $fonts-serif;
+            }
+            margin:
+            {
+                left:  auto;
+                right: auto;
+            }
+            max-width: 60em;
+            h1.title
+            {
+                font:
+                {
+                    size:    3.33em;
+                    variant: small-caps;
+                }
+                text:
+                {
+                    align: center;
+                }
+            }
+            h2.subtitle
+            {
+                font:
+                {
+                    size:    2.0em;
+                    variant: small-caps;
+                }
+                text:
+                {
+                    align: center;
+                }
+            }
+            //  The main text body
+            section
+            {
+                h1
+                {
+                    padding:
+                    {
+                        top:    2px;
+                        left:   0.25em;
+                        bottom: 2px;
+                    }
+                }
+                h2
+                {
+                    margin:
+                    {
+                        top:  10px;
+                        left: 0.25em;
+                    }
+                    padding:
+                    {
+                        top:    2px;
+                        left:   0.25em;
+                        bottom: 2px;
+                    }
+                }
+            }
+            //  Themes
+            &.story
+            {
+                section
+                {
+                    h1
+                    {
+                        background:
+                        {
+                            color: hsla(014.60, 65.50%, 43.10%, 1.00);
+                        }
+                        color: $white-dk;
+                    }
+                    h2
+                    {
+                        background:
+                        {
+                            color: hsla(012.00, 80.00%, 90.20%,1.00);
+                        }
+                    }
+                    blockquote
+                    {
+                        background:
+                        {
+                            color: fadeOut($grey-25, 0.75);
+                        }
+                        margin:
+                        {
+                            bottom: 0;
+                        }
+                        padding:
+                        {
+                            bottom: 10px;
+                        }
+                        @mixin bqborder($side)
+                        {
+                            border:
+                            {
+                                #{$side}-color: $grey-25;
+                                #{$side}-style: solid;
+                                #{$side}-width: 6px;
+                            }
+                        }
+                        &.left
+                        {
+                            @include bqborder("left");
+                        }
+                        &.right
+                        {
+                            @include bqborder("right");
+                        }
+                    }
+                    img#squish
+                    {
+                        float: right;
+                        width: 25%;
+                    }
+                    p
+                    {
+                        &.journal
+                        {
+                            font:
+                            {
+                                style: italic;
+                            }
+                        }
+                        &.datestamp
+                        {
+                            text:
+                            {
+                                align: right;
                             }
                         }
                     }

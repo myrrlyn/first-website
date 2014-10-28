@@ -25,7 +25,7 @@ function FontsPage()
     $(FontKit.List.Parent).click(function ShowFont()
     {
         DebugPrint("Font click event!");
-        var $SelectedFont = $('#' + this.id).attr('data-font');
+        var $SelectedFont = $(this).attr('data-font');
         DebugPrint('data-font attribute: ' + $SelectedFont);
         ChangeFont($SelectedFont);
     });
