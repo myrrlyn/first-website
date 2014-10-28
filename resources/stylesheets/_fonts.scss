@@ -1,5 +1,5 @@
 //  FONTS
-//  Fetches non-local fonts
+//  Governs font classes and fetches non-local font resources
 
 @import url(http://fonts.googleapis.com/css?family=Amaranth);
 @import url(http://fonts.googleapis.com/css?family=Inconsolata);
@@ -16,6 +16,7 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto+Slab);
 //  @import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono);
 
+//  Some of my compilers STILL don't do @each very well
 @mixin font($class, $name, $file, $cap)
 {
     @font-face
@@ -38,7 +39,7 @@
 @include font(dunmeris-script-worn, Dunmeris-Script-Worn,   Daedric-Script-Eroded,  false);
 .dunmeris-cyber { font-family: 'Cyberpunk Daedric'; text-transform: uppercase; }
 @include font(dovah,                Dovah,                  Dovah,                  true);
-@include font(dwemeris,             Dwemer,                 Dwemer,                 true);
+.dwemeris { font-family: Dwemer; }
 @include font(falmeris,             Falmeris,               Falmer,                 true);
 .inconsolata { font-family: 'Inconsolata-dz', 'Inconsolata'; }
 @include font(magnus,               Magnus,                  Mage,                  true);

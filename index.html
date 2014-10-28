@@ -35,6 +35,9 @@
                 src="/resources/scripts/fonts.js">
         </script>
         <script type="text/javascript"
+                src="/resources/scripts/oeuvre.js">
+        </script>
+        <script type="text/javascript"
                 src="/resources/scripts/myrrlyn.js">
         </script>
     </head>
@@ -65,16 +68,13 @@
                     <!-- Primary (home) link -->
                     <a href="#"
                        id="homepage"
-                       class="navbar-brand
-                              myrr-page-loader"
+                       class="navbar-brand myrr-page-loader"
                        data-myrrPage="Home">
                         myrrlyn
                     </a>
                     <!-- Navmenu targeted by button -->
                     <div id="nav-main"
-                         class="navbar-collapse
-                                collapse
-                                myrr-page-loader">
+                         class="navbar-collapse collapse myrr-page-loader">
                         <ul class="nav navbar-nav">
                             <li>
                                 <a href="#"
@@ -87,10 +87,39 @@
                             <li class="dropdown">
                                 <a href="#"
                                    id="oeuvre"
-                                   class="myrr-page-loader"
+                                   class="myrr-page-loader dropdown-toggle"
+                                   data-toggle="dropdown"
                                    data-myrrPage="Oeuvre">
                                     oeuvre myrrlyn
+                                    <span class="caret"></span>
                                 </a>
+                                <ul class="dropdown-menu"
+                                    role="menu">
+                                    <li>
+                                        <a href="#"
+                                           id="orcpocrypha"
+                                           class="myrr-page-loader"
+                                           data-myrrPage="Orcpocrypha">
+                                            Orcpocrypha
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"
+                                           id="metaphysics"
+                                           class="myrr-page-loader"
+                                           data-myrrPage="Metaphysics">
+                                            Metaphysical Essays
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"
+                                           id="Stories"
+                                           class="myrr-page-loader"
+                                           data-myrrPage="Stories">
+                                            Stories of Tamriel
+                                        </a>
+                                    </li>
+                                </ul>
                             </li>
                             <li>
                                 <a href="#"
@@ -132,6 +161,11 @@
                 <div id="myrr-article-wrapper"
                      class="col-md-9">
                     <!-- AJAX destination -->
+                </div>
+            </div>
+            <div class="row">
+                <div id="myrr-fakebar"
+                     class="col-md-3">
                 </div>
             </div>
         </div>
