@@ -33,7 +33,7 @@ $(document).ready(function ()
 
 //#region Navigation
 
-//  Resource and display information
+//  Resource file namespace
 var SiteMap =
 {
     //  Directory of all pages to load
@@ -48,7 +48,7 @@ var SiteMap =
     Pages:
     {
         //  Default display page
-        DEFAULT: ["oeuvre", Oeuvre],
+        DEFAULT: ["keljs", KelJS],
         //  About Me
         About: ["about", AboutMe],
         //  Font display page
@@ -274,7 +274,6 @@ var Banners =
 
 function AboutMe() { DebugPrint("AboutMe function called"); }
 function HomePage() { DebugPrint("HomePage function called"); }
-function KelJS() { DebugPrint("KelJS function called"); }
 function Metaphysics() { DebugPrint("IndexOeuvre function called"); }
 function Orcpocrypha() { DebugPrint("IndexOeuvre function called"); }
 function Stories() { DebugPrint("IndexOeuvre function called"); }

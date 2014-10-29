@@ -4,6 +4,7 @@
  * Powered by jQuery
  */
 
+//  The Navigation callback.
 function FontsPage()
 {
     DebugPrint("FontsPage function called");

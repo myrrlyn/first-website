@@ -4,8 +4,7 @@
  * Powered by jQuery
  */
 
-//#region Loading
-
+//  The Navigation callback.
 function Oeuvre()
 {
     DebugPrint("Oeuvre function called");
@@ -38,5 +37,3 @@ var OeuvreIndex =
     Selector: "aside.oeuvre li",
     Target: "article.oeuvre"
 };
-
-//#endregion
