@@ -5,156 +5,156 @@
  * Commissioned by Michael Kirkbride
  */
 
-//  The Navigation callback
+/// <summar>
+/// Execution wrapper for use with Navigate()
+/// </summary>
 function KelJS()
 {
-    //  Wipe the table's destination.
-    DebugPrint("Wiping the wrapper");
-    $('div#myrr-article-wrapper').empty();
-    //  Construct the table's outer skeleton.
-    DebugPrint("Building foundations");
-    (function ()
+    //  KelJS should only be used by Navigate(), so feed a magic string to the main function
+    //  Custom uses should call WriteElderScroll directly, and pass their own destination
+    WriteElderScroll("article#keljs-article");
+}
+
+/// <summary>
+/// Execution wrapper capable of being used as a general callback
+/// </summary>
+/// <param name="$Target" type="string">
+/// CSS-selector string jQuery can use to determine load destination
+/// </param>
+function WriteElderScroll($Target)
+{
+    //  DOM node into which the Scroll is written
+    var ScrollCase = $($Target);
+
+    //  Dimensions namespace - must be inside the function as access to the target DOM
+    //  node is required for proper sizing.
+    var Dimensions = {};
+    //  Size of cells
+    Dimensions.Scalar = 50;
+    //  Columns
+    Dimensions.Width = ScrollCase.innerWidth() / Dimensions.Scalar;
+    //  Rows
+    Dimensions.Height = ScrollCase.innerHeight() / Dimensions.Scalar;
+    //  Cells
+    Dimensions.Length = Dimensions.Width * Dimensions.Height;
+    //  Domain of the scrambling algorithm.
+    //  log_b_(x) = log_k_(x) / log_k_(b)
+    Dimensions.Domain = Math.pow(2, Math.ceil(Math.log(Dimensions.Length) / Math.log(2)));
+
+    //  Scroll arrays - one with low entropy, one with high
+    var ScrollInit = (function CreateScroll()
     {
-        $('div#myrr-article-wrapper').append('<table id="ScrollTable"><tbody></tbody></table>');
+        var Scroll = [];
+        for (var ScrollIndex = 0; ScrollIndex < Dimensions.Length; ScrollIndex++)
+        {
+            Scroll.push((ScrollIndex < Glyphs.Count) ? (Glyphs.WeightSet[ScrollIndex]) : (Glyphs.Resolve(Glyphs.Seed())));
+        }
+        return Scroll;
     })();
-    //  Cell counter
-    var IdxCell = 0;
-    //  Construct the table's inner skeleton.
-    DebugPrint("Building internals");
-    for (var IdxRow = 0; IdxRow < Dimensions.Height; IdxRow++)
+    var ScrollFinal = (function ScrambleScroll()
     {
-        $('table#ScrollTable tbody').append('<tr class="' + IdxRow + '"></tr>');
-    }
-    //  Initial array, containing 1-35 in the top and random in the rest
-    var ScrollOrdered = [];
-    //  Fully scrambled array
-    var ScrollShuffled = [];
-    //  The walker for our scrambling function
-    var ScrambleStep = Math.floor(Math.random() * Dimensions.Domain);
-    //  Constructing the ordered array...
-    for (var SoIdx = 0; SoIdx < Dimensions.Length; SoIdx++)
-    {
-        if (SoIdx < Glyphs.Count)
+        var Scroll = [];
+        //  The scrambler uses values in [0..Dimension.Domain), not [0..Dimensions.Length)
+        var ScrambleStep = Glyphs.Seed(Dimensions.Domain);
+        var Scrambler = function ($Step)
         {
-            ScrollOrdered.push(Glyphs.WeightSet[SoIdx]);
-        }
-        else
+            return (((5 * $Step) + 1) % Dimensions.Domain);
+        };
+        //  Track successful shuffle steps - [Dimensions.Length..Dimensions.Domain) are invalid
+        var ValidHits = 0;
+        while (ValidHits < Dimensions.Length)
         {
-            ScrollOrdered.push(Glyphs.Resolve(Glyphs.Seed()));
+            if (ScrambleStep < Dimensions.Length)
+            {
+                Scroll.push(ScrollInit[ScrambleStep]);
+            }
+            Scrambler(ScrambleStep);
+        }
+        return Scroll;
+    })();
+
+    //  SCROLL CONSTRUCTION METHODS  \\
+
+    //  Remove any pre-existing content
+    ScrollCase.empty();
+    //  Construct the outer foundation
+    ScrollCase.append('<table id="ScrollTable" class="keljs"><tbody></tbody></table>');
+    //  Count the cells printed
+    var IndexCell = 0;
+    //  Construct the inner foundation
+    for (var IndexRow = 0; IndexRow < Dimensions.Height; IndexRow++)
+    {
+        //  Row with numeric identifier
+        $('#ScrollTable tbody').append('<tr class="row-' + IndexRow + '"></tr>');
+        for (var IndexCol = 0; IndexCol < Dimensions.Width; IndexCol++)
+        {
+            //  Cell with numeric identifiers
+            $('#ScrollTable tr').append('<td class=col-"' + IndexCol + '" id=cell-"' + IndexCell + '"></td>');
+            ++IndexCell;
         }
     }
-    //  Constructing the final array. A while loop is required because not all
-    //  passes inside Dimensions.Domain will return a valid array index inside
-    //  Dimensions.Length
-    var ShuffleCount = 0;
-    while (ShuffleCount < Dimensions.Length)
+    //  Fill the table with ScrollFinal
+    for (var IndexFill = 0; IndexFill < Dimensions.Length; IndexFill++)
     {
-        //  Test to see if the next random index is valid. If so, push and count,
-        //  If not, try try again.
-        if (ScrambleStep < Dimensions.Length)
-        {
-            ScrollShuffled.push(ScrollOrdered[ScrambleStep]);
-            ++ShuffleCount;
-        }
-        //  Get the next random index
-        ScrambleStep = Scramble(ScrambleStep);
-    }
-    //  Push array to document
-    for (var ScrIdx = 0; ScrIdx < Dimensions.Length; ScrIdx++)
-    {
-        var $Glyph = ScrollShuffled[ScrIdx];
-        $("td#cell-" + ScrIdx).append($Glyph).addClass('glyph-' + $Glyph);
+        var $GlyphNum = ScrollFinal[IndexFill];
+        var $GlyphChar = 'G' + ($Glyph < 10) ? '0' : '';
+        $('#cell-' + IndexFill).append($GlyphChar + $GlyphNum).addClass('glyph-' + $GlyphNum);
     }
 };
-// |—————————|—————————|—————————|—————————|—————————|—————————|—————————|—————————|
 
-//  Scroll Wrapper
-//  This needs to be hoisted since it's present in multiple namespace objects.
-//  This is the SELECTOR, not the node object. Wrap in $() to resolve.
-var ScrollWrapper = 'div#myrr-article-wrapper';
-
-//  Dimensions namespace
-var Dimensions = {};
-
-//  Size of generated cells
-Dimensions.Scalar = 50;
-
-//  Height of the Scroll array
-Dimensions.Height = Math.floor($(ScrollWrapper).innerWidth() / Dimensions.Scalar);
-
-//  Width of the Scroll array
-Dimensions.Width  = Math.floor($(ScrollWrapper).innerWidth() / Dimensions.Scalar);
-
-//  Number of cells in the Scroll array
-Dimensions.Length = Dimensions.Height * Dimensions.Width;
-
-//  Magic trick with logarithms: log_b_(x) = log_k_(x) / log_k_(b) for any base k
-//  JavaScript only provides one logarithm method, log_e_() or ln(), and we need
-//  log_2_(Dimensions.Length). Thus, magic.
-Dimensions.Domain = Math.pow(2, Math.ceil(Math.log(Dimensions.Length) / Math.log(2)));
-
-//  Glyph Alphabet namespace
+//  Glyphs namespace - can be outside the main function as it is invariate.
 var Glyphs = {};
-
-//  There are 35 glyphs. Remember kids, magic numbers are from the devil.
-//  Incidentally, this is just shorthand for Glyphs.WeightSet.length, since unlike
-//  the stricter languages in which I've also written this, JavaScript arrays don't
-//  require any special priming vis-a-vis size.
+//  Number of Glyphs - unnecessary, but a habit from construction of this program
+//  in languages more stringent about array sizing. And magic numbers are always
+//  good to avoid.
 Glyphs.Count = 35;
-
-//  Weights harvested from source material. Weighted random > full random for
-//  language constructs
+//  Relative frequencies of each Glyph, gathered from an in-game scroll image.
+//  We may very well add Markov analysis in the future, but for now frequency
+//  distribution is all we have.
 Glyphs.WeightSet =
 [
-    12, 06, 11, 10, 04, 08, 07,
-    07, 16, 17, 06, 04, 03, 20,
-    10, 06, 06, 02, 26, 12, 05,
-    12, 18, 04, 06, 13, 07, 03,
-    04, 03, 01, 05, 01, 01, 01
+    15, 13, 19, 10, 06, 12, 07,
+    12, 22, 24, 18, 10, 10, 22,
+    17, 09, 15, 04, 39, 19, 10,
+    24, 29, 09, 13, 23, 15, 09,
+    09, 10, 07, 15, 04, 08, 04
 ];
-
-//  The sum of WeightSet[@]. Probability of Glyph $G is WeightSet[$G] / NetWeight
-Glyphs.NetWeight = (function SumWeightSet()
+//  Sum of WeightSet[@] indices. Individual Glyph probability is
+//  WeightSet[$G] / NetWeight
+Glyphs.NetWeight = (function SumWeights()
 {
-    var WeightTracker = 0;
-    for (var WsIdx = 0; WsIdx < Glyphs.Count; WsIdx++)
+    var WeightCounter = 0;
+    for (var WeightIndex = 0; WeightIndex < Glyphs.Count; WeightIndex++)
     {
-        WeightTracker += Glyphs.WeightSet[WsIdx];
+        WeightCounter += Glyphs.WeightSet[WeightIndex];
     }
-    return WeightTracker;
+    return WeightCounter;
 })();
-
-//  Generates a random integer in [0..NetWeight)
+/// <summary>
+/// Glyph-domain RNG - create an integer in [0..NetWeight)
+/// </summary>
 Glyphs.Seed = function ()
 {
-    return Math.floor(Math.random() * Glyphs.NetWeight)
+    return Math.floor(Math.random() * Glyphs.NetWeight);
 };
-
-//  Transforms a Glyphs.Seed() return-integer into a valid Glyph
+/// <summary>
+/// Resolves a [0..NetWeight) integer to a valid Glyph
+/// </summary>
+/// <param name="$GlyphNumber" type="Number" integer="true">
+/// A number within [0..NetWeight) to be resolved into a Glyph index
 Glyphs.Resolve = function ($GlyphNumber)
 {
-    //  The Glyph ([0..Glyphs.Count)) to be found
-    var $Glyph;
-    //  The domain of checked values
-    var ResolutionTracker = 0;
-    //  Each pass through the loop adds a Glyph's weight to the ResolutionTracker
-    //  counter, and when that counter surpasses the value of the input number, the loop
-    //  exits. The last value of the loop index represents the Glyph containing the
-    //  number passed to this method. Boundary numbers are awarded to the high Glyph.
-    //  I.e, if WeightSet[0] = 10, Resolve(10) returns 1, not 0.
-    for ($Glyph = 0; $Glyph < Glyphs.Count; $Glyph++)
+    //  Walk the WeightSet array until we include $GlyphNumber
+    for (var GlyphIndex = 0; GlyphIndex < Glyphs.Count; GlyphIndex++)
     {
-        ResolutionTracker += Glyphs.WeightSet[$Glyph];
-        if ($GlyphNumber < ResolutionTracker)
+        //  Subtract the current Glyph's weight from the input seed
+        $GlyphNumber -= Glyphs.WeightSet[GlyphIndex];
+        //  Eventually, a Glyph's weight index will drive the input seed below zero, which
+        //  gives us a Glyph value.
+        if ($GlyphNumber < 0)
         {
-            //  Glyphs are presented as [1..Glyphs.Count], not [0..Glyphs.Count)
-            return "G" + ++$Glyph;
+            //  Glyphs are [1..35], not [0..35), so add one before returning
+            return ++GlyphIndex;
         }
     }
-};
-
-//  Pseudorandom shuffling function.
-var Scramble = function ($Step)
-{
-    return ((5 * $Step) + 1) % Dimensions.Domain;
 };

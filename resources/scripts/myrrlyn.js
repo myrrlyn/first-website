@@ -48,7 +48,7 @@ var SiteMap =
     Pages:
     {
         //  Default display page
-        DEFAULT: ["keljs", KelJS],
+        DEFAULT: ["home", HomePage],
         //  About Me
         About: ["about", AboutMe],
         //  Font display page
