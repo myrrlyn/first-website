@@ -163,3 +163,8 @@ function ResolveFont($FontString)
     }
     return $FontIndex;
 };
+
+//  Visual Studio references to other scripts in the project
+/// <reference path="/resources/libraries/jquery/jquery-2.1.1.js" />
+/// <reference path="/resources/libraries/bootstrap/javascripts/bootstrap.js" />
+/// <reference path="/resources/scripts/myrrlyn.js" />

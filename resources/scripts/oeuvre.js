@@ -7,7 +7,6 @@
 //  The Navigation callback.
 function Oeuvre()
 {
-    DebugPrint("Oeuvre function called");
     //  Handle index manipulation
     $('aside.oeuvre h2.category').addClass('closed').click(function ()
     {
@@ -37,3 +36,8 @@ var OeuvreIndex =
     Selector: "aside.oeuvre li",
     Target: "article.oeuvre"
 };
+
+//  Visual Studio references to other scripts in the project
+/// <reference path="/resources/libraries/jquery/jquery-2.1.1.js" />
+/// <reference path="/resources/libraries/bootstrap/javascripts/bootstrap.js" />
+/// <reference path="/resources/scripts/myrrlyn.js" />
