@@ -1,13 +1,13 @@
-﻿@import url(http://fonts.googleapis.com/css?family=Amaranth);
-@import url(http://fonts.googleapis.com/css?family=Inconsolata);
-@import url(http://fonts.googleapis.com/css?family=Roboto);
-@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed);
-@import url(http://fonts.googleapis.com/css?family=Roboto+Slab);
 /* === myrrlyn.scss ===
  * Custom site styles
  * Written by myrrlyn
  * Powered by WebEssentials
  */
+@import url(http://fonts.googleapis.com/css?family=Amaranth);
+@import url(http://fonts.googleapis.com/css?family=Inconsolata);
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab);
 html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -28,29 +28,25 @@ html, body {
 
 @font-face {
   font-family: Dunmeris;
-  src: url('/resources/fonts/Daedric-Plain.ttf'); }
-
+  src: url("/resources/fonts/Daedric-Plain.ttf"); }
 .dunmeris {
   font-family: Dunmeris; }
 
 @font-face {
   font-family: Dunmeris-Worn;
-  src: url('/resources/fonts/Daedric-Plain-Eroded.ttf'); }
-
+  src: url("/resources/fonts/Daedric-Plain-Eroded.ttf"); }
 .dunmeris-worn {
   font-family: Dunmeris-Worn; }
 
 @font-face {
   font-family: Dunmeris-Script;
-  src: url('/resources/fonts/Daedric-Script.ttf'); }
-
+  src: url("/resources/fonts/Daedric-Script.ttf"); }
 .dunmeris-script {
   font-family: Dunmeris-Script; }
 
 @font-face {
   font-family: Dunmeris-Script-Worn;
-  src: url('/resources/fonts/Daedric-Script-Eroded.ttf'); }
-
+  src: url("/resources/fonts/Daedric-Script-Eroded.ttf"); }
 .dunmeris-script-worn {
   font-family: Dunmeris-Script-Worn; }
 
@@ -60,8 +56,7 @@ html, body {
 
 @font-face {
   font-family: Dovah;
-  src: url('/resources/fonts/Dovah.ttf'); }
-
+  src: url("/resources/fonts/Dovah.ttf"); }
 .dovah {
   font-family: Dovah;
   text-transform: uppercase; }
@@ -71,8 +66,7 @@ html, body {
 
 @font-face {
   font-family: Falmeris;
-  src: url('/resources/fonts/Falmer.ttf'); }
-
+  src: url("/resources/fonts/Falmer.ttf"); }
 .falmeris {
   font-family: Falmeris;
   text-transform: uppercase; }
@@ -82,16 +76,14 @@ html, body {
 
 @font-face {
   font-family: Magnus;
-  src: url('/resources/fonts/Mage.ttf'); }
-
+  src: url("/resources/fonts/Mage.ttf"); }
 .magnus {
   font-family: Magnus;
   text-transform: uppercase; }
 
 @font-face {
   font-family: Planewalker;
-  src: url('/resources/fonts/Planewalker.ttf'); }
-
+  src: url("/resources/fonts/Planewalker.ttf"); }
 .planewalker {
   font-family: Planewalker; }
 
@@ -100,53 +92,44 @@ html, body {
 
 @font-face {
   font-family: Skyrim-Books-Gaelic;
-  src: url('/resources/fonts/Skyrim-Books-Gaelic.ttf'); }
-
+  src: url("/resources/fonts/Skyrim-Books-Gaelic.ttf"); }
 .sb-gaelic {
   font-family: Skyrim-Books-Gaelic; }
 
 @font-face {
   font-family: Skyrim-Books-Hand;
-  src: url('/resources/fonts/Skyrim-Books-Hand.ttf'); }
-
+  src: url("/resources/fonts/Skyrim-Books-Hand.ttf"); }
 .sb-hand {
   font-family: Skyrim-Books-Hand; }
 
 @font-face {
   font-family: Skyrim-Books-Illegible;
-  src: url('/resources/fonts/Skyrim-Books-Illegible.ttf'); }
-
+  src: url("/resources/fonts/Skyrim-Books-Illegible.ttf"); }
 .sb-illegible {
   font-family: Skyrim-Books-Illegible; }
 
 @font-face {
   font-family: Skyrim-Symbols;
-  src: url('/resources/fonts/Skyrim-Books-Symbols.ttf'); }
-
+  src: url("/resources/fonts/Skyrim-Books-Symbols.ttf"); }
 .sr-sym {
   font-family: Skyrim-Symbols; }
 
 @-webkit-viewport {
   width: device-width; }
-
 @-moz-viewport {
   width: device-width; }
-
 @-ms-viewport {
   width: device-width; }
-
 @-o-viewport {
   width: device-width; }
-
 @viewport {
   width: device-width; }
-
 .uppercase {
   text-transform: uppercase; }
 
 body {
   background-color: #efefef;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 18px; }
 
 header {
@@ -178,9 +161,9 @@ nav.navbar.navbar-default {
         background-color: #555555 !important; }
   nav.navbar.navbar-default a.myrr-doc-loader {
     color: #efefef !important;
-    font-family: 'Inconsolata-dz', 'Inconsolata', 'Ubuntu Mono', 'Consolas', monospace; }
+    font-family: "Inconsolata-dz", "Inconsolata", "Ubuntu Mono", "Consolas", monospace; }
   nav.navbar.navbar-default ul.nav.navbar-nav li a:hover {
-    background-color: #808080 !important; }
+    background-color: gray !important; }
 
 div#myrr-fakebar {
   background-image: url(/resources/images/dark-bg.png);
@@ -242,7 +225,7 @@ div#myrr-aside-wrapper {
     cursor: default; }
     div#myrr-aside-wrapper aside.oeuvre h2.category::after {
       cursor: pointer;
-      font-family: 'Inconsolata-dz', 'Inconsolata', 'Ubuntu Mono', 'Consolas', monospace;
+      font-family: "Inconsolata-dz", "Inconsolata", "Ubuntu Mono", "Consolas", monospace;
       font-size: 50%;
       vertical-align: middle; }
     div#myrr-aside-wrapper aside.oeuvre h2.category.closed::after {
@@ -263,7 +246,7 @@ div#myrr-article-wrapper article.fonts table {
   div#myrr-article-wrapper article.fonts table tbody tr td {
     text-align: center; }
 div#myrr-article-wrapper article.oeuvre {
-  font-family: 'Roboto Slab', 'Georgia', serif;
+  font-family: "Roboto Slab", "Georgia", serif;
   margin-left: auto;
   margin-right: auto;
   max-width: 60em; }
@@ -272,7 +255,7 @@ div#myrr-article-wrapper article.oeuvre {
     font-variant: small-caps;
     text-align: center; }
   div#myrr-article-wrapper article.oeuvre h2.subtitle {
-    font-size: 2em;
+    font-size: 2.0em;
     font-variant: small-caps;
     text-align: center; }
   div#myrr-article-wrapper article.oeuvre section h1 {
@@ -286,7 +269,7 @@ div#myrr-article-wrapper article.oeuvre {
     padding-left: 0.25em;
     padding-bottom: 2px; }
   div#myrr-article-wrapper article.oeuvre.story section h1 {
-    background-color: #b64826;
+    background-color: #b64926;
     color: #efefef; }
   div#myrr-article-wrapper article.oeuvre.story section h2 {
     background-color: #fadad2; }
@@ -309,6 +292,83 @@ div#myrr-article-wrapper article.oeuvre {
     font-style: italic; }
   div#myrr-article-wrapper article.oeuvre.story section p.datestamp {
     text-align: right; }
-
+div#myrr-article-wrapper article.keljs table {
+  margin: 0;
+  padding: 0; }
+  div#myrr-article-wrapper article.keljs table tbody tr {
+    height: 50px; }
+    div#myrr-article-wrapper article.keljs table tbody tr td {
+      font-family: "Inconsolata-dz", "Inconsolata", "Ubuntu Mono", "Consolas", monospace;
+      width: 50px; }
+      div#myrr-article-wrapper article.keljs table tbody tr td.glyph-0 {
+        background-color: rgba(0, 0, 0, 0.75); }
+      div#myrr-article-wrapper article.keljs table tbody tr td.glyph-1 {
+        background-color: rgba(255, 0, 0, 0.75); }
+      div#myrr-article-wrapper article.keljs table tbody tr td.glyph-2 {
+        background-color: rgba(0, 255, 255, 0.75); }
+      div#myrr-article-wrapper article.keljs table tbody tr td.glyph-3 {
+        background-color: rgba(0, 255, 0, 0.75); }
+      div#myrr-article-wrapper article.keljs table tbody tr td.glyph-4 {
+        background-color: rgba(128, 255, 0, 0.75); }
+      div#myrr-article-wrapper article.keljs table tbody tr td.glyph-5 {
+        background-color: rgba(204, 255, 0, 0.75); }
+      div#myrr-article-wrapper article.keljs table tbody tr td.glyph-6 {
+        background-color: rgba(255, 255, 0, 0.75); }
+      div#myrr-article-wrapper article.keljs table tbody tr td.glyph-7 {
+        background-color: rgba(255, 219, 0, 0.75); }
+      div#myrr-article-wrapper article.keljs table tbody tr td.glyph-8 {
+        background-color: rgba(255, 191, 0, 0.75); }
+      div#myrr-article-wrapper article.keljs table tbody tr td.glyph-9 {
+        background-color: rgba(255, 170, 0, 0.75); }
+      div#myrr-article-wrapper article.keljs table tbody tr td.glyph-10 {
+        background-color: rgba(255, 153, 0, 0.75); }
+      div#myrr-article-wrapper article.keljs table tbody tr td.glyph-11 {
+        background-color: rgba(255, 139, 0, 0.75); }
+      div#myrr-article-wrapper article.keljs table tbody tr td.glyph-12 {
+        background-color: rgba(255, 128, 0, 0.75); }
+      div#myrr-article-wrapper article.keljs table tbody tr td.glyph-13 {
+        background-color: rgba(255, 118, 0, 0.75); }
+      div#myrr-article-wrapper article.keljs table tbody tr td.glyph-14 {
+        background-color: rgba(255, 109, 0, 0.75); }
+      div#myrr-article-wrapper article.keljs table tbody tr td.glyph-15 {
+        background-color: rgba(255, 102, 0, 0.75); }
+      div#myrr-article-wrapper article.keljs table tbody tr td.glyph-16 {
+        background-color: rgba(255, 96, 0, 0.75); }
+      div#myrr-article-wrapper article.keljs table tbody tr td.glyph-17 {
+        background-color: rgba(255, 90, 0, 0.75); }
+      div#myrr-article-wrapper article.keljs table tbody tr td.glyph-18 {
+        background-color: rgba(255, 85, 0, 0.75); }
+      div#myrr-article-wrapper article.keljs table tbody tr td.glyph-19 {
+        background-color: rgba(255, 81, 0, 0.75); }
+      div#myrr-article-wrapper article.keljs table tbody tr td.glyph-20 {
+        background-color: rgba(255, 77, 0, 0.75); }
+      div#myrr-article-wrapper article.keljs table tbody tr td.glyph-21 {
+        background-color: rgba(255, 73, 0, 0.75); }
+      div#myrr-article-wrapper article.keljs table tbody tr td.glyph-22 {
+        background-color: rgba(255, 70, 0, 0.75); }
+      div#myrr-article-wrapper article.keljs table tbody tr td.glyph-23 {
+        background-color: rgba(255, 67, 0, 0.75); }
+      div#myrr-article-wrapper article.keljs table tbody tr td.glyph-24 {
+        background-color: rgba(255, 64, 0, 0.75); }
+      div#myrr-article-wrapper article.keljs table tbody tr td.glyph-25 {
+        background-color: rgba(255, 61, 0, 0.75); }
+      div#myrr-article-wrapper article.keljs table tbody tr td.glyph-26 {
+        background-color: rgba(255, 59, 0, 0.75); }
+      div#myrr-article-wrapper article.keljs table tbody tr td.glyph-27 {
+        background-color: rgba(255, 57, 0, 0.75); }
+      div#myrr-article-wrapper article.keljs table tbody tr td.glyph-28 {
+        background-color: rgba(255, 55, 0, 0.75); }
+      div#myrr-article-wrapper article.keljs table tbody tr td.glyph-29 {
+        background-color: rgba(255, 53, 0, 0.75); }
+      div#myrr-article-wrapper article.keljs table tbody tr td.glyph-30 {
+        background-color: rgba(255, 51, 0, 0.75); }
+      div#myrr-article-wrapper article.keljs table tbody tr td.glyph-31 {
+        background-color: rgba(255, 49, 0, 0.75); }
+      div#myrr-article-wrapper article.keljs table tbody tr td.glyph-32 {
+        background-color: rgba(255, 48, 0, 0.75); }
+      div#myrr-article-wrapper article.keljs table tbody tr td.glyph-33 {
+        background-color: rgba(255, 46, 0, 0.75); }
+      div#myrr-article-wrapper article.keljs table tbody tr td.glyph-34 {
+        background-color: rgba(255, 45, 0, 0.75); }
 
 /*# sourceMappingURL=myrrlyn.css.map */

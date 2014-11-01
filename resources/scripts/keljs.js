@@ -25,9 +25,8 @@ function KelJS()
     };
     //  JavaScript /really/ does not like having object elements depend on sibling
     //  elements, so these need to be discrete and then packaged after their creation.
-    // |—————————|—————————|—————————|—————————|—————————|—————————|—————————|—————————| \\
-    var KelWidth  = Math.ceil(KelData.Width  / KelData.Scalar);
-    var KelHeight = Math.ceil(KelData.Height / KelData.Height);
+    var KelWidth  = Math.floor(KelData.Width  / KelData.Scalar);
+    var KelHeight = Math.floor(KelData.Height / KelData.Scalar);
     var KelLength = KelWidth * KelHeight;
     var KelDomain = Math.pow(2, Math.ceil(Math.log(KelLength) / Math.log(2)));
 
@@ -45,6 +44,27 @@ function KelJS()
 
     //  Begin construction of the Scroll HTML
 
+    //  Add the outer foundations of the Scroll table
+    $("article#keljs-article").html('<table id="ElderScrollWrapper"><tbody></tbody></table>');
+    //  Add the inner foundations of the Scroll table
+    var IdxCel = 0;
+    for (var IdxRow = 0; IdxRow < KelHeight; IdxRow++)
+    {
+        $("table#ElderScrollWrapper tbody").append('<tr class="row-' + IdxRow + '"></tr>');
+        for (var IdxCol = 0; IdxCol < KelWidth; IdxCol++)
+        {
+            $("tr.row-" + IdxRow).append('<td class="col-' + IdxCol + '" id="cell-' + IdxCel + '"></td>');
+            IdxCel++;
+        }
+    }
+
+    //  Write the Scroll to the table
+
+    for (var CellCount = 0; CellCount < KelFormat.Length; CellCount++)
+    {
+        var Glyph = ($DEBUGSTATUS) ? BrowserScroll.Scroll[CellCount] : BrowserScroll.Scroll.pop();
+        $('td#cell-' + CellCount).html(Glyph.Name).addClass('glyph-' + Glyph.Number);
+    }
 }
 
 var WriteElderScroll = function ($KelDimensions)
@@ -54,7 +74,7 @@ var WriteElderScroll = function ($KelDimensions)
     /// </summary>
     /// <param name="$KelData" type="Object">
     /// Four child integers: Width, Height, and Length in cell counts, and Domain as
-    /// 2**i such that Length <= Domain
+    /// 2**i such that Length &lt;= Domain
     /// </param>
     /// <returns type="Object">
     /// An object containing a string and two arrays: a timestamp, an array of the
@@ -74,7 +94,7 @@ var WriteElderScroll = function ($KelDimensions)
     ScrollCase.Stats = (function ()
     {
         var StatsArray = new Array(Glyphs.Count);
-        for (var Index = 0; Index < StatsArray.length; ++Index)
+        for (var Index = 0; Index < StatsArray.length; Index++)
         {
             StatsArray[Index] = 0;
         }
@@ -82,19 +102,13 @@ var WriteElderScroll = function ($KelDimensions)
     })();
 
     //  Create the ordered ScrollCase.Scroll array
-    for (var ScrollIndex = 0; ScrollIndex < $KelDimensions.Length; ++ScrollIndex)
+    for (var ScrollIndex = 0; ScrollIndex < $KelDimensions.Length; ScrollIndex++)
     {
-        //  Ensure that each Glyph is present at least once, if there is enough space.
-        //  Once satisfied, seed the Scroll with weighted-random Glyph values.
-        var GenGlyph = Glyphs.Resolve
-        ( (ScrollIndex < Glyphs.Count)
-        ? (Glyphs.Weights[ScrollIndex] - 1)
-        : (Glyphs.Seed())
-        );
+        var GenGlyph = Glyphs.Resolve(Glyphs.Seed());
         //  Push the entire Glyph object to the Scroll array
         ScrollCase.Scroll.push(GenGlyph);
         //  Push -only the ID- to the Stats array
-        ++ScrollCase.Stats[GenGlyph.Number];
+        ScrollCase.Stats[GenGlyph.Number]++;
 
     }
     //  Reorder the created array
@@ -103,6 +117,28 @@ var WriteElderScroll = function ($KelDimensions)
     //  And we're done
     return ScrollCase;
 };
+
+var WriteScrollTable = function ($TableData)
+{
+    /// <summary>
+    /// Writes an HTML table into which a Scroll can be loaded
+    /// </summary>
+    /// <param name="$TableData">
+    /// An object consisting of Width, Height, and Length integers, and a Target string
+    /// </param>
+
+    var Index = { Cel: 0, Col: 0, Row: 0 };
+    $($TableData.Target).empty().append('<table id="ElderScrollWrapper"><tbody></tbody><tbody>');
+    for (Index.Row = 0; Index.Row < $TableData.Height; Index.Row++)
+    {
+        $('table#ElderScrollWrapper tbody').append('<tr class="row-' + Index.Row + '"></tr>');
+        for (Index.Col = 0; Index.Col < $TableData.Width; Index.Col++)
+        {
+            $('tr.row-' + Index.Row).append('<td class="col-' + Index.Col + '" id="cel-' + Index.Cel + '"></td>');
+            Index.Cel++;
+        }
+    }
+}
 
 //  Glyphs namespace
 var Glyphs = {};
@@ -113,8 +149,8 @@ Glyphs.Count = 35;
 //  but for now frequency is all we have collected.
 Glyphs.Weights =
 [
-    15, 13, 19, 10, 06, 12,
-    07, 12, 22, 24, 18, 10,
+    15, 13, 19, 10, 06, 13,
+    07, 13, 22, 23, 18, 10,
     10, 22, 17, 09, 15, 04,
     39, 19, 10, 24, 29, 09,
     13, 23, 15, 09, 09, 10,
@@ -124,7 +160,7 @@ Glyphs.Weights =
 Glyphs.NetWeight = (function SumWeights()
 {
     var Counter = 0;
-    for (var Index = 0; Index < Glyphs.Count; ++Index)
+    for (var Index = 0; Index < Glyphs.Count; Index++)
     {
         Counter += Glyphs.Weights[Index];
     }
@@ -148,7 +184,7 @@ Glyphs.Resolve = function ($GlyphSeed)
     /// A number in [0..Glyphs.NetWeight) to be used in creating a Glyph object.
     /// </param>
     /// <returns type="Object">
-    /// A Glyph object of format { Name: string, Number: integer }
+    /// A Glyph object of format { Name: string, Number: integer, Seed: integer }
     /// </returns>
 
     //  Construct the basis of the returned Glyph object.
@@ -161,11 +197,15 @@ Glyphs.Resolve = function ($GlyphSeed)
         /// <var>
         /// The raw integer ID of the Glyph object
         /// </var>
-        Number: 0
+        Number: 0,
+        /// <var>
+        /// The random seed that generated the Glyph
+        /// </var>
+        Seed: $GlyphSeed
     };
 
     //  Walk the Glyphs.Weights array until we have included the input parameter
-    for (var GlyphIndex = 0; GlyphIndex < Glyphs.Count; ++GlyphIndex)
+    for (var GlyphIndex = 0; GlyphIndex < Glyphs.Count; GlyphIndex++)
     {
         //  Subtract the current Glyph's weight from the input parameter
         $GlyphSeed -= Glyphs.Weights[GlyphIndex];
@@ -175,10 +215,10 @@ Glyphs.Resolve = function ($GlyphSeed)
         //  than NetWeight, so this conditional will always eventually be satisfied.
         if ($GlyphSeed < 0)
         {
+            NewGlyph.Number = GlyphIndex;
             //  Adds a 0 as padding if the index is in [0..8] so the output will be 0[0..9]
             //  The name of the Glyph is in [1..35], but the number is still in [0..35)
             NewGlyph.Name = 'G' + (GlyphIndex < 9 ? "0" : "") + ++GlyphIndex;
-            NewGlyph.Number = GlyphIndex;
             return NewGlyph;
         }
     }
@@ -216,13 +256,53 @@ function Reorder($Array, $Domain)
         {
             //  Cons a pseudorandomly-fetched element to the return array.
             ReorderedArray.push($Array[Step]);
-            ++Counter;
+            Counter++;
         }
         //  The algorithm must cycle whether or not the cons succeeded.
         Step = Stepper(Step);
     }
     return ReorderedArray;
 };
+
+//#region Debugging
+
+var DiffDebug = function ($Count)
+{
+    var DifferenceSum = (function ()
+    {
+        var DiffArray = new Array(Glyphs.Count);
+        for (var Index = 0; Index < DiffArray.length; Index++)
+        {
+            DiffArray[Index] = 0;
+        }
+        return DiffArray;
+    })();
+    var DifferenceAvg = [];
+
+    for (var AverageCount = 1; AverageCount <= $Count; AverageCount++)
+    {
+        var Diff = [];
+        var Scroll = WriteElderScroll({Width: 17, Height: 29, Length: 493, Domain: 512}).Stats;
+        for (var DiffIdx = 0; DiffIdx < Glyphs.Count; DiffIdx++)
+        {
+            Diff[DiffIdx] = Scroll[DiffIdx] - Glyphs.Weights[DiffIdx];
+            DifferenceSum[DiffIdx] += Diff[DiffIdx];
+            DifferenceAvg[DiffIdx] = DifferenceSum[DiffIdx] / AverageCount;
+        }
+    }
+    var DifferenceTot = (function ()
+    {
+        var Counter = 0;
+        for (var SumCount = 0; SumCount < Glyphs.Count; SumCount++)
+        {
+            Counter += DifferenceSum[SumCount];
+        }
+        return Counter;
+    })();
+    return { NetDiff: DifferenceSum, AvgDiff: DifferenceAvg, TotalDiff: DifferenceTot };
+}
+
+//#endregion
 
 //  Visual Studio references to other scripts in the project
 /// <reference path="/resources/libraries/jquery/jquery-2.1.1.js" />
