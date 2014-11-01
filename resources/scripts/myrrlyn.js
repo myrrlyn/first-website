@@ -33,7 +33,7 @@ $(document).ready(function ()
 
 //#region Navigation
 
-//  Resource and display information
+//  Resource file namespace
 var SiteMap =
 {
     //  Directory of all pages to load
@@ -274,7 +274,6 @@ var Banners =
 
 function AboutMe() { DebugPrint("AboutMe function called"); }
 function HomePage() { DebugPrint("HomePage function called"); }
-function KelJS() { DebugPrint("KelJS function called"); }
 function Metaphysics() { DebugPrint("IndexOeuvre function called"); }
 function Orcpocrypha() { DebugPrint("IndexOeuvre function called"); }
 function Stories() { DebugPrint("IndexOeuvre function called"); }
@@ -306,8 +305,14 @@ function DebugPrint($DEBUGINFO)
     /// <param name="$DEBUGINFO">
     /// The information to be logged to console for debugging purposes.
     /// </param>
-    if ($DEBUGSTATUS) console.log($DEBUGINFO);
-    if ($ALERTSTATUS) alert($DEBUGINFO);
+    if ($DEBUGSTATUS) ($ALERTSTATUS ? alert($DEBUGINFO) : console.log($DEBUGINFO));
 };
 
 //#endregion
+
+//  Visual Studio references to other scripts in the project
+/// <reference path="/resources/libraries/jquery/jquery-2.1.1.js" />
+/// <reference path="/resources/libraries/bootstrap/javascripts/bootstrap.js" />
+/// <reference path="/resources/scripts/fonts.js">
+/// <reference path="/resources/scripts/keljs.js">
+/// <reference path="/resources/scripts/oeuvre.js">
