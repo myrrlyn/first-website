@@ -496,6 +496,41 @@ div#myrr-article-wrapper
                 }
             }
         }
+        //  Elder Scroll demonstration
+        &.keljs
+        {
+            table
+            {
+                margin:  0;
+                padding: 0;
+                tbody
+                {
+                    tr
+                    {
+                        height: $glyph_scalar;
+                        td
+                        {
+                            font:
+                            {
+                                family: $fonts-mono;
+                            }
+                            width: $glyph_scalar;
+                            @for $glyph from 0 to 35
+                            {
+                                $hue: (360 / $glyph);
+                                &.glyph-#{$glyph}
+                                {
+                                    background:
+                                    {
+                                        color: hsla($hue, 100.0%, 50.00%, 0.75);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
