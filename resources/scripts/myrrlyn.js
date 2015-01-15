@@ -9,9 +9,33 @@ $(document).ready(function ()
 {
     //  Pick a banner
     Banners.Pick();
+    switch (window.location.hash)
+    {
+        case "#oeuvre":
+            Navigate(SiteMap.Pages.Oeuvre.Head);
+            break;
+        case "#oeuvre-orcpocrypha":
+            Navigate(SiteMap.Pages.Oeuvre.Head);
+            $("h2#orcpocrypha-index").addClass('active');
+            $("h2#orcpocrypha-index").toggleClass('closed open');
+            $("h2#orcpocrypha-index").slideToggle();
+            $("h2#orcpocrypha-index").removeClass('active');
+            break;
+        case "#oeuvre-metaphysics":
+            Navigate(SiteMap.Pages.Oeuvre.Head);
+            break;
+        case "#oeuvre-stories":
+            Navigate(SiteMap.Pages.Oeuvre.Head);
+            break;
+        case "#fonts":
+            Navigate(SiteMap.Pages.Fonts);
+            break;
+        default:
+            Navigate(SiteMap.Pages.DEFAULT);
+            break;
+    }
     //  Execute default page load
     DebugPrint("Attempting initial pageload: " + SiteMap.Pages.DEFAULT[0]);
-    Navigate(SiteMap.Pages.DEFAULT);
     //  Await user navigation
     //  For some reason, jQueryNavigate cannot be defined in global scope and still
     //  operate successfully.
@@ -112,6 +136,7 @@ function Navigate($Page)
     //  don't need to try to understand it, and I certainly don't.
     DebugPrint("Navigation attempted: " + $Page[0]);
     $(SiteMap.Wrappers.Article).load($Article, function () { NavCallback($Function); });
+    window.location.hash = $Page[0];
 };
 function NavCallback($Function)
 {
